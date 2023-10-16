@@ -33,7 +33,7 @@ The Robius ecosystem consists of several independent projects that can be compos
 Components are loosely coupled, allowing a developer (in the future) to customize which components are used to comprise the underlying system, such as choosing 
 
 * [Makepad] is a cross-platform UI toolkit currently under active development that offers a hybrid retained-mode and immediate-mode UI model.
-  * Rapid development cycle: *very* fast compile times due to a custom miminal dependency set, plus a custom DSL for live design that enables hot reloading of UI elements.
+  * Rapid development cycle: *very* fast compile times due to a custom minimal dependency set, plus a custom DSL for live design that enables hot reloading of UI elements.
   * Makepad Studio: an IDE prototype built using Makepad itself with unique features like cross-process shared textures for live reload of an in-window UI app, docking tabs for file/window views, hyper-smooth code folding, and more.
   * Makepad framework: a (growing) collection of highly-performant widgets and minimal, zero/low-overhead platform abstractions.
 
@@ -41,7 +41,7 @@ Components are loosely coupled, allowing a developer (in the future) to customiz
   * Supports *many* platforms with a set of interchangeable target renderers, including desktop, webapps, static sites, text UIs, liveview, and mobile.
   * Fast and memory-efficient, with perfect lighthouse scores and performance orders of magnitude better than Node or Python.
   * Excellent built-in abstractions for state management.
-  * Easy, familiar styling using vaniall CSS or the CSS framework of your choice, e.g., Tailwind.
+  * Easy, familiar styling using vanilla CSS or the CSS framework of your choice, e.g., Tailwind.
 
 * [Osiris] is a set of Rust interfaces for developing immersive applications atop a diverse set of operating systems services and platform-specific functionality.
   * Osiris aims to provide Rust apps with an easy canonical way to access platform features like storage, networking, multimedia (video, audio, camera), geolocation, device orientation (accelerometer, gyro), timers & alarms, notifications, clipboard, drag-n-drop, and more. 
@@ -113,3 +113,6 @@ As mentioned at the top, please feel free to reach out to our friendly community
 [`makepad_image_manipulation`]: https://github.com/project-robius/makepad_image_manipulation
 
 [^1]: Robius is not officially affiliated with the Rust project or Rust foundation.
+
+
+<!-- cspell:ignore Mobius, Möbius, ˈɹoʊˈbiəs -->
