@@ -1,0 +1,14 @@
+[book]
+title = "The Robius Book"
+authors = [
+    "Kevin Boos <kevinaboos@gmail.com",
+]
+description = "Documentation on the Robius project: multi-platform application development in Rust."
+multilingual = false
+src = "src"
+
+[output.html]
+
+[output.linkcheck]
+optional = true
+## See other linkcheck options here: <https://github.com/Michael-F-Bryan/mdbook-linkcheck#configuration>
