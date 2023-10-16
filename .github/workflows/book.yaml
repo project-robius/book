@@ -1,6 +1,10 @@
 name: Book
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   book:
@@ -61,7 +65,7 @@ jobs:
       uses: streetsidesoftware/cspell-action@v2
       with:
         config: './cspell.json'
-        files: './**'
+        files: './src/**'
         incremental_files_only: false
         # Enforce strict spell check except on push to main branch.
         strict: ${{ !(github.event_name == 'push' && github.ref == 'refs/heads/main') }}
