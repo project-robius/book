@@ -54,7 +54,6 @@ jobs:
 
     - name: Report versions
       run: |
-        rustc --version --verbose
         mdbook --version
         mdbook-linkcheck --version
 
