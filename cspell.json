@@ -1,0 +1,58 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "languageSettings": [
+        {
+            "languageId": "markdown",
+            "ignoreRegExpList": [
+                "CodeBlock",
+                "CodeInline"
+            ],
+            "patterns": [
+                {
+                    "name": "CodeBlock",
+                    "pattern": "```[\\w\\W]+?```"
+                },
+                {
+                    "name": "CodeInline",
+                    "pattern": "`[\\w\\W]+?`"
+                }
+            ]
+        }
+    ],
+    "ignorePaths": [
+        "*.svg"
+    ],
+    "words": [
+        "dev",
+        "devs",
+        "Dioxus",
+        "Dioxus's",
+        "Makepad",
+        "Makepad's",
+        "performant",
+        "performantly",
+        "Robius",
+        "Robrix",
+        "Taobao",
+        "toolkit",
+        "toolkits",
+        "ylong"
+    ],
+    "ignoreWords": [
+        "geolocation",
+        "liveview",
+        "rustc",
+        "rustdoc",
+        "rustflags",
+        "rustup",
+        "SIMD",
+        "struct",
+        "structs",
+        "syscall",
+        "sysroot",
+        "Thinkpad",
+        "userspace",
+        "webapps"
+    ]
+}
