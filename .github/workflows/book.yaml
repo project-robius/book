@@ -31,11 +31,6 @@ jobs:
           ${{ runner.os }}-cargo-
           ${{ runner.os }}-
 
-    # Remove book directory cache before publishing.
-    - name: Clean book build directory before publishing
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      run: mdbook clean
-
     - name: Install mdbook
       uses: peaceiris/actions-mdbook@v1
       with:
