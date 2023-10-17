@@ -31,14 +31,11 @@ jobs:
           ${{ runner.os }}-cargo-
           ${{ runner.os }}-
 
-<<<<<<< Updated upstream
     # Remove book directory cache before publishing.
     - name: Clean book build directory before publishing
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: mdbook clean
 
-=======
->>>>>>> Stashed changes
     - name: Install mdbook
       uses: peaceiris/actions-mdbook@v1
       with:
@@ -81,8 +78,8 @@ jobs:
     - name: Move build artifacts
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        rm -rf ./github_pages/book
-        mv ./book/html/ ./github_pages/book/
+        rm -rf ./github_pages/
+        mv ./book/html/ ./github_pages/
 
     # Deploy on push to main branch.
     - name: Deploy
