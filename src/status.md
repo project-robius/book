@@ -79,9 +79,9 @@ The key/legend for this table is as follows:
     <td class="tg-left">Multiwindow</td>
     <td class="tg-center">—</td>
     <td class="tg-center">—</td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
   </tr>
@@ -97,26 +97,36 @@ The key/legend for this table is as follows:
   </tr>
   <tr>
     <td class="tg-left">Timers, Alarms</td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
     <td class="tg-center"></td>
   </tr>
   <tr>
     <td class="tg-left">Camera</td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
   </tr>
   <tr>
     <td class="tg-left">Audio Input</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center"></td>
+    <td class="tg-center"></td>
+  </tr>
+  <tr>
+    <td class="tg-left">Audio Playback</td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
@@ -126,18 +136,18 @@ The key/legend for this table is as follows:
     <td class="tg-center"></td>
   </tr>
   <tr>
-    <td class="tg-left">Audio Output</td>
+    <td class="tg-left">MIDI Output</td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center"></td>
   </tr>
   <tr>
     <td class="tg-left">Video Playback</td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
@@ -209,7 +219,7 @@ The key/legend for this table is as follows:
     <td class="tg-left">Drag &amp; Drop</td>
     <td class="tg-center"></td>
     <td class="tg-center"></td>
-    <td class="tg-center">MP</td>
+    <td class="tg-center"></td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center"></td>
