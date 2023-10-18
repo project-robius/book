@@ -165,7 +165,7 @@ but that the language ecosystem needs a bit more love and attention to make it a
 This makes for a nice color-based connection to Rust, our programming language of choice.</p>
 <p>Robius rhymes with Mobius, and our logo/icons take inspiration from the wordplay combination of &quot;Rust&quot; and &quot;Mobius strip&quot;. </p>
 <blockquote>
-<p>Yes, <em>technically</em>, the original German name is Möbius, but we use an Americanized pronunciation with a long &quot;o&quot; sounds: &quot;Roe-bee-us&quot; / ˈɹoʊˈbiəs.</p>
+<p>Yes, <em>technically</em>, the original German name is Möbius, but we use an Americanized pronunciation with a long &quot;o&quot; sound: &quot;Roe-bee-us&quot; / ˈɹoʊˈbiəs.</p>
 </blockquote>
 <h2 id="key-community-projects"><a class="header" href="#key-community-projects">Key Community Projects</a></h2>
 <p>The Robius ecosystem consists of several independent projects that can be composed into a complete system stack to realize fast, painless application development across multiple platforms in pure Rust.
@@ -245,7 +245,8 @@ Components are loosely coupled, allowing a developer (in the future) to customiz
 Osiris-specific examples are coming soon.</p>
 <h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
 <p>We welcome contributions, ideas, and suggestions from anyone! We're also open to help you host and maintain your project under the umbrella of the Robius organization.</p>
-<p>As mentioned at the top, please feel free to reach out to our friendly community of devs on the <a href="https://matrix.to/#/#robius:matrix.org">Robius space on Matrix chat</a>.</p>
+<p>Translations of book content and READMEs to other languages are especially appreciated! If you're multilingual and feeling generous, kindly reach out to us.</p>
+<p>As mentioned before, please feel free to reach out to our friendly community of devs on the <a href="https://matrix.to/#/#robius:matrix.org">Robius space on Matrix chat</a>.</p>
 <!-- Links below -->
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>Robius is not officially affiliated with the Rust project or Rust foundation.</p>
@@ -258,7 +259,320 @@ For now, everything else beyond UI will require you to add the missing pieces yo
 <p>Everything is developed right here in the open, so check back for updates often!
 We plan to introduce a pre-alpha version of the full Robius system stack (everything beneath the application) by early-to-mid 2024, which will enable easier access to and integration of other platform/OS features alongside the UI toolkits.</p>
 <h2 id="platform-support"><a class="header" href="#platform-support">Platform support</a></h2>
-<p>Coming soon: a table of which app dev features are supported on which platforms.</p>
+<p>The following table indicates which projects in the Robius community currently support a given feature on each given platform.</p>
+<p>The key/legend for this table is as follows:</p>
+<ul>
+<li>MP : supported by Makepad.</li>
+<li>DX : supported by Dioxus.</li>
+<li>OS : supported by Osiris.</li>
+<li>—  : feature not applicable or not planned for the given platform.</li>
+<li>Blank table cells indicate the feature has not been started.</li>
+</ul>
+<!-- cspell:disable -->
+<div>
+<br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-1wig"></th>
+    <th class="tg-amwm">Android</th>
+    <th class="tg-amwm">iOS</th>
+    <th class="tg-amwm">Linux</th>
+    <th class="tg-amwm">MacOS</th>
+    <th class="tg-amwm">Windows</th>
+    <th class="tg-7btt">Web</th>
+    <th class="tg-7btt">OpenHarmony</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Basic build tool</td>
+    <td class="tg-baqh">MP DX OS</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX OS</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Basic UI</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-c3ow">MP DX</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">UI live/hot reload</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh">MP DX</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Multiwindow</td>
+    <td class="tg-baqh">—</td>
+    <td class="tg-baqh">—</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Input Events</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Timers, Alarms</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Camera</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Audio Input</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Audio Output</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow">MP</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Video Playback</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Storage/Filesystem</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Networking</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Permissions mgmt</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Geolocation</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Clipboard (text)<br></td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-baqh">MP</td>
+    <td class="tg-c3ow">MP</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Notifications</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Drag &amp; Drop</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow">MP</td>
+    <td class="tg-c3ow">MP</td>
+    <td class="tg-c3ow">MP</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Accelerometer/Gyro</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Vibration/haptics</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Biometric</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">WiFi mgmt</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Bluetooth</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Display brightness</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Power/Battery state</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Ambient light sensor</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Proximity sensor</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Physical buttons</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<!-- cspell:enable -->
 
                     </main>
 
