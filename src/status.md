@@ -19,9 +19,9 @@ The key/legend for this table is as follows:
 * —  : feature not applicable or not planned for the given platform.
 * Blank table cells indicate the feature has not been started.
 
+<!-- cspell:disable -->
 <div>
 <br>
-<!-- cspell:disable -->
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
@@ -36,7 +36,6 @@ The key/legend for this table is as follows:
 .tg .tg-0lax{text-align:left;vertical-align:top}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<!-- cspell:enable -->
 <table class="tg">
 <thead>
   <tr>
@@ -324,3 +323,5 @@ The key/legend for this table is as follows:
 </tbody>
 </table>
 </div>
+<!-- cspell:enable -->
+
