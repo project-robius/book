@@ -25,7 +25,7 @@ This makes for a nice color-based connection to Rust, our programming language o
 
 Robius rhymes with Mobius, and our logo/icons take inspiration from the wordplay combination of "Rust" and "Mobius strip". 
 
-> Yes, *technically*, the original German name is Möbius, but we use an Americanized pronunciation with a long "o" sounds: "Roe-bee-us" / ˈɹoʊˈbiəs.
+> Yes, *technically*, the original German name is Möbius, but we use an Americanized pronunciation with a long "o" sound: "Roe-bee-us" / ˈɹoʊˈbiəs.
 
 
 ## Key Community Projects
@@ -90,7 +90,9 @@ Osiris-specific examples are coming soon.
 ## Contributing
 We welcome contributions, ideas, and suggestions from anyone! We're also open to help you host and maintain your project under the umbrella of the Robius organization.
 
-As mentioned at the top, please feel free to reach out to our friendly community of devs on the [Robius space on Matrix chat](https://matrix.to/#/#robius:matrix.org).
+Translations of book content and READMEs to other languages are especially appreciated! If you're multilingual and feeling generous, kindly reach out to us.
+
+As mentioned before, please feel free to reach out to our friendly community of devs on the [Robius space on Matrix chat](https://matrix.to/#/#robius:matrix.org).
 
 
 <!-- Links below -->
