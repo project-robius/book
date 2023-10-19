@@ -6,12 +6,10 @@
 
 -------------------
 
-## TODO
-- [Chapter 1]()
-    - [Chapter 1.1]()
-    - [Chapter 1.2]()
+- [Robius Whitepaper](whitepaper/overview.md)
+    - [Motivation: why Robius?](whitepaper/motivation.md)
+    - [Project Goals]() <!-- whitepaper/goals.md) -->
+    - [Technical Requirements]() <!-- whitepaper/requirements.md) -->
+    - [System Architecture]() <!-- whitepaper/design.md) -->
 
 
-- [Chapter 2]()
-    - [Chapter 2.1]()
-    - [Chapter 2.2]()

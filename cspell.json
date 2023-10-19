@@ -24,12 +24,14 @@
         "*.svg"
     ],
     "words": [
+        "barebones",
         "dev",
         "devs",
         "Dioxus",
         "Dioxus's",
         "haptic",
         "haptics",
+        "jank",
         "Makepad",
         "Makepad's",
         "mgmt",
