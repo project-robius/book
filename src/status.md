@@ -90,8 +90,8 @@ The key/legend for this table is as follows:
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
-    <td class="tg-center"></td>
-    <td class="tg-center"></td>
+    <td class="tg-center">MP</td>
+    <td class="tg-center">MP</td>
     <td class="tg-center">MP</td>
     <td class="tg-center"></td>
   </tr>
