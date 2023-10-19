@@ -610,28 +610,30 @@ This makes for a nice color-based connection to Rust, our programming language o
 <div style="break-before: page; page-break-before: always;"></div><h1 id="motivation-why-robius"><a class="header" href="#motivation-why-robius">Motivation: why Robius?</a></h1>
 <p>Several motivating factors inspired us to start the Robius project:</p>
 <ol>
-<li>App developers want to use Rust, but aren’t sure where or how to get started due to Rust's app dev ecosystem being in a rough state. 
-<ul>
-<li>Paralysis of choice among dozens of partial solutions</li>
-<li>Unclear how to integrate many disparate projects</li>
-</ul>
-</li>
-<li>There are clear business advantages to writing applications in a multi-platform Rust framework.
-<ul>
-<li>Consistent experience for devs and customers</li>
-<li>Avoid redundant dev effort → save money, faster time to market</li>
-</ul>
-</li>
-<li>Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... <em>yet</em>.
-<ul>
-<li>Safety → increased correctness, reliability</li>
-<li>Performance efficiency → responsive, jank-free UI</li>
-<li>Potential to unify two dev worlds: systems + frontend apps</li>
-</ul>
-</li>
+<li>App developers want to use Rust, but aren’t sure where or how to get started due to Rust's app dev ecosystem being in a rough state. </li>
 </ol>
+<!-- 
+    * Paralysis of choice among dozens of partial solutions
+    * Unclear how to integrate many disparate projects
+     -->
+<ol start="2">
+<li>There are clear business advantages to writing applications in a multi-platform Rust framework.</li>
+</ol>
+<!-- 
+    * Consistent experience for devs and customers
+    * Avoid redundant dev effort → save money, faster time to market
+     -->
+<ol start="3">
+<li>Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... <em>yet</em>.</li>
+</ol>
+<!-- 
+    * Safety → increased correctness, reliability
+    * Performance efficiency → responsive, jank-free UI
+    * Potential to unify two dev worlds: systems + frontend apps
+-->
 <p>The following sections examine each of these factors in detail.</p>
-<h2 id="1-developers-express-great-interest-in-writing-rust-apps"><a class="header" href="#1-developers-express-great-interest-in-writing-rust-apps">1. Developers express great interest in writing Rust apps</a></h2>
+<h2 id="1-developers-really-want-to-write-apps-in-rust"><a class="header" href="#1-developers-really-want-to-write-apps-in-rust">1. Developers really want to write apps in Rust</a></h2>
+<!-- ## 1. Developers express great interest in writing Rust apps -->
 <!-- 
 * App developers want to use Rust, but are unsure how to get started
     * Fractured ecosystem – many competing crates
@@ -651,7 +653,7 @@ We have observed this trend for several years in two main flavors:</p>
 <p>The former group of Rust devs is mainly focused on the biggest unknown to them: creating GUI apps and packaging apps up for mobile targets; this is the first group that we wish to support with Robius.
 The latter group of frontend devs have deeper expertise in application-level implementation but are not sure how to transition those skills to the world of Rust; this is the second group that we wish to support.
 One major commonality is that both groups are unsure how or where to start developing an app in Rust.</p>
-<h3 id="fractured-incomplete-ecosystem"><a class="header" href="#fractured-incomplete-ecosystem">Fractured, incomplete ecosystem</a></h3>
+<h3 id="ecosystem-is-fractured-and-incomplete"><a class="header" href="#ecosystem-is-fractured-and-incomplete">Ecosystem is fractured and incomplete</a></h3>
 <p>The first problem that most aspiring devs encounter is the massive collection of projects, mostly GUI libraries, many of which are incomplete proofs-of-concept or simply abandoned.
 Though there are many competing UI frameworks in the main <code>crates.io</code> registry, it is difficult to discover which ones are most appropriate for a given application's needs, and even harder to determine whether and how these projects can be integrated with others to form a functional app dev toolkit.</p>
 <p>For more evidence, look no further than the <a href="https://areweguiyet.com/"><code>areweguiyet.org</code></a> website, which aims to track the bevy of GUI crates and their progress. Their homepage states:</p>
@@ -731,7 +733,7 @@ Without end-to-end sample code, it is challenging for an expert, let alone a new
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
  -->
-<h2 id="3-clear-business-advantages-of-multi-platform-app-dev-in-rust"><a class="header" href="#3-clear-business-advantages-of-multi-platform-app-dev-in-rust">3. Clear business advantages of multi-platform app dev in Rust</a></h2>
+<h2 id="3-rust-app-dev-has-clear-business-advantages"><a class="header" href="#3-rust-app-dev-has-clear-business-advantages">3. Rust app dev has clear business advantages</a></h2>
 <ul>
 <li>Business case/perspective – why is this needed?
 <ul>
