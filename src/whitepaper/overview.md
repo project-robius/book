@@ -14,7 +14,7 @@ You can also view this whitepaper content as:
 ## Elevator pitch — Robius in 60 seconds
 The Robius project's primary focus is to provide a multi-platform application development toolkit where both the app and the entire system stack are written completely in Rust.
 This will enable developers across all layers to leverage the many benefits of Rust: safety, efficiency, fearless concurrency, high performance, and a robust ecosystem of crates spanning many domains.
-A Rust-only stack avoids the additional complexity brought on by introducing other languages via FFI interop layers; these "bridges" only faciliate the usage of Rust for business logic, and impose high overhead when crossing the boundary between Rust and the platform-native framework.
+A Rust-only stack avoids the additional complexity brought on by introducing other languages via FFI interop layers; these "bridges" only facilitate the usage of Rust for business logic, and impose high overhead when crossing the boundary between Rust and the platform-native framework.
 
 Robius's secondary focus is to make the Rust experience on mobile platforms feel like a first-class citizen.
 Historically, Rust on mobile has been a neglected area of the ecosystem, missing key components from build tooling to native-like UIs and widgets to platform support crates.
@@ -32,3 +32,6 @@ This makes for a nice color-based connection to Rust, our programming language o
 Robius rhymes with Mobius, and our logo/icons take inspiration from the wordplay combination of "Rust" and "Mobius strip". 
 
 > Yes, *technically*, the original German name is Möbius, but we use an Americanized pronunciation with a long "o" sound: "Roe-bee-us" / ˈɹoʊˈbiəs.
+
+
+<!-- cspell:ignore Mobius, Möbius, ˈɹoʊˈbiəs -->

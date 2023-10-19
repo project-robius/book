@@ -8,7 +8,7 @@ Several motivating factors inspired us to start the Robius project:
 2. There are clear business advantages to writing applications in a multi-platform Rust framework.
     * Consistent experience for devs and customers
     * Avoid redundant dev effort → save money, faster time to market
-3. Rust is a great language and the right choice for many programming domains, but not for multi-plaform apps ... *yet*.
+3. Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... *yet*.
     * Safety → increased correctness, reliability
     * Performance efficiency → responsive, jank-free UI
     * Potential to unify two dev worlds: systems + frontend apps
@@ -114,6 +114,8 @@ For a Rust application development framework to gain real traction, it must lead
 
 ## 2. Rust is the right choice for the future of app dev
 
+<!-- cspell:disable -->
+
 * Rust offers safety and performance
     * Safety leads to increased correctness, eliminating memory & concurrency bugs
         * Higher reliability, less developer frustration and debugging difficulties
@@ -128,6 +130,8 @@ For a Rust application development framework to gain real traction, it must lead
         * Efficiency is key for longer battery life, less heat output
     * Built-in support for easy cross-platform compilation targeting
     * Good, clear dependency management via cargo
+
+<!-- cspell:enable -->
 
 
 
