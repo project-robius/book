@@ -3,21 +3,28 @@
 Several motivating factors inspired us to start the Robius project:
 
 1. App developers want to use Rust, but aren’t sure where or how to get started due to Rust's app dev ecosystem being in a rough state. 
+<!-- 
     * Paralysis of choice among dozens of partial solutions
     * Unclear how to integrate many disparate projects
+     -->
 2. There are clear business advantages to writing applications in a multi-platform Rust framework.
+<!-- 
     * Consistent experience for devs and customers
     * Avoid redundant dev effort → save money, faster time to market
+     -->
 3. Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... *yet*.
+<!-- 
     * Safety → increased correctness, reliability
     * Performance efficiency → responsive, jank-free UI
     * Potential to unify two dev worlds: systems + frontend apps
+-->
 
 The following sections examine each of these factors in detail.
 
 
 
-## 1. Developers express great interest in writing Rust apps
+## 1. Developers really want to write apps in Rust
+<!-- ## 1. Developers express great interest in writing Rust apps -->
 
 <!-- 
 * App developers want to use Rust, but are unsure how to get started
@@ -39,7 +46,7 @@ The former group of Rust devs is mainly focused on the biggest unknown to them: 
 The latter group of frontend devs have deeper expertise in application-level implementation but are not sure how to transition those skills to the world of Rust; this is the second group that we wish to support.
 One major commonality is that both groups are unsure how or where to start developing an app in Rust.
 
-### Fractured, incomplete ecosystem
+### Ecosystem is fractured and incomplete
 The first problem that most aspiring devs encounter is the massive collection of projects, mostly GUI libraries, many of which are incomplete proofs-of-concept or simply abandoned.
 Though there are many competing UI frameworks in the main `crates.io` registry, it is difficult to discover which ones are most appropriate for a given application's needs, and even harder to determine whether and how these projects can be integrated with others to form a functional app dev toolkit.
 
@@ -144,7 +151,7 @@ For a Rust application development framework to gain real traction, it must lead
 
 
 
-## 3. Clear business advantages of multi-platform app dev in Rust
+## 3. Rust app dev has clear business advantages
 
 * Business case/perspective – why is this needed?
     * See Signal app’s multi-team split approach for multiple redundant stacks
