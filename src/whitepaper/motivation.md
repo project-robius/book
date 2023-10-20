@@ -7,7 +7,7 @@ Several motivating factors inspired us to start the Robius project:
     * Paralysis of choice among dozens of partial solutions
     * Unclear how to integrate many disparate projects
      -->
-2. There are clear business advantages to writing applications in a multi-platform Rust framework.
+2. There are clear **business advantages** to writing applications in a multi-platform Rust framework.
 <!-- 
     * Consistent experience for devs and customers
     * Avoid redundant dev effort → save money, faster time to market
@@ -23,7 +23,7 @@ The following sections examine each of these factors in detail.
 
 
 
-## 1. Developers really want to write apps in Rust
+## 1. Developers *really* want to write apps in Rust
 <!-- ## 1. Developers express great interest in writing Rust apps -->
 
 <!-- 
@@ -73,7 +73,7 @@ This is especially evident when compared to app dev frameworks led by a single d
 
 
 
-### Apps are more than just UI + UX
+### Apps need more than just UI + UX
 Even if GUI development in Rust was a solved problem, UIs do not tell the whole story — an application still needs to access services and features from the underlying platform or OS.
 As with UI works, there are indeed a plethora of crates that offer basic interfaces to access platform-specific features.
 Some offer general abstractions of a single feature across multiple platforms, while others or specific features on a single platform.
@@ -94,7 +94,7 @@ That is why we created the [**Osiris project**](https://github.com/osiris-apis/o
 
 
 
-### Meta problem — lack of documentation
+### Documentation is paramount
 
 Another reason many newcomers find it so difficult to get started is that there is a distinct lack of documentation, tutorials, and examples for the vast majority of crates in this domain.
 
@@ -119,7 +119,58 @@ For a Rust application development framework to gain real traction, it must lead
 
 
 
-## 2. Rust is the right choice for the future of app dev
+
+## 2. Rust app dev offers clear business advantages
+
+
+* Business case/perspective – why is this needed?
+    * See Signal app’s multi-team split approach for multiple redundant stacks
+        * TODO: see Yong’s slides about this, plus gather other use cases
+    * Evidence – why was Flutter created?
+        * Expected question – why not just use Flutter?
+            * Why Rust? → more specifically, why not just Javascript?
+
+TODO: insert slide content about element X and the attitude surrounding Rust's potential benefit for speedups
+
+
+<!-- 
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+ -->
+
+## 3. Rust is the right choice for the future of app dev
+
+Both current trends and key aspects of Rust reinforce our assertion that Rust is the best choice for the next generation of multi-platform application development.
+
+### Rust is increasingly popular, admired, and wanted
+
+Rust has been voted the most admired language for the past 8 years in a row (2015 - 2023), according to the [StackOverflow annual developer survey](https://survey.stackoverflow.co/2023/).
+For the first time, Rust also became the most wanted language this year (2023).
+
+<p float="left">
+  <img align="top" src="img/rust_loved.png" width="66.9%" />
+  <img align="top" src="img/rust_wanted.png" width="30%" />
+</p>
+
+In addition, Rust is leading the development of technologies for new platforms, e.g., it is the [most frequently used language for WebAssembly (WASM)](https://blog.scottlogic.com/2023/10/18/the-state-of-webassembly-2023.html) for the third year running.
+![Rust is highly used in WebAssembly projects](img/wasm-language-usage.png)
+The same study also found that:
+* Developers of WASM tools have a strong preference for Rust,
+* Rust is the most *desired* language for projects involving WASM, and
+* The leading and most-used WASM runtimes are written in Rust, the [Wasmtime] and [wasmer] projects.
+
+[Wasmtime]: https://github.com/bytecodealliance/wasmtime
+[wasmer]: https://github.com/wasmerio/wasmer
+
+
+These trends indicate that Rust adoption will continue to grow, and that other developers are open and willing to learn Rust in order to use it for new applications.
+
+
+### Rust combines safety with usability and performance
+
+If you're reading this book, you likely already know about the strengths of Rust and the benefits that 
+ ensures safety with no runtime costs
+
 
 <!-- cspell:disable -->
 
@@ -141,27 +192,35 @@ For a Rust application development framework to gain real traction, it must lead
 <!-- cspell:enable -->
 
 
+### Rust's core ecosystem is excellent
+
+Finally, Rust comes with an excellent suite of features and tooling beyond the core language itself.
+First, Rust's primary compiler `rustc` [uses LLVM as a backend](https://rustc-dev-guide.rust-lang.org/overview.html#code-generation), which affords it two main benefits: 
+1. Rust can leverage LLVM's existing support for [a wide set of target triples](https://doc.rust-lang.org/rustc/targets/index.html), including many architectures, target OS platforms, and library environments.
+    * Most importantly, the compiler supports cross-compiling by default, making it super easy to build code for a different target than your host. To state the obvious, quick and easy cross-compilation is a **key prerequisite** for a multi-platform app dev framework.
+2. Despite being a relatively young language, Rust can immediately realize highly-optimized code generation thanks to decades of effort poured into LLVM by compiler experts.
+
+
+Second, Rust's package manager [`cargo`](https://doc.rust-lang.org/cargo/) vastly simplifies discovering, specifying, and correctly building dependencies for your project.
+It integrates tightly with [`crates.io`](https://crates.io/), a registry of crates (projects) from the Rust community that makes it trivial to publish, distribute, and depend on other open-source crates.
+Furthermore, cargo makes it easy to specify dependencies as an exact version or a range of versions of a given crates by utilizing [SemVer](https://doc.rust-lang.org/cargo/reference/resolver.html#semver-compatibility) semantic versioning.
+This design avoids the versioning hell that frequently plagues other languages and package manager, and there are even [community-provided tools](https://github.com/rust-lang/rust-semverver) to ensure semver compliance when releasing new versions of a crate.
 
 
 
-<!-- 
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
- -->
+## Rust does have some relevant shortcomings 
+
+TODO: see powerpoint slides (slide 16)
+
+* Some deficiencies / weak points from a UI standpoint
+    * Lack of familiar OOP patterns; UI folks are accustomed to inheritance 
+    * Difficult to realize shared mutable state
+        * Typical closure-based callback pattern → overuse of  Rc<RefCell<…>> 
+    * Compilation is “slow”
+        * But constantly improving … wait for Nick’s talk
+
+* Potentially steep learning curve for frontend devs
+    * A survey from VFV about transitioning frontend devs from a native platform language to Flutter (the pre-eminent cross-platform app dev framework)
 
 
 
-## 3. Rust app dev has clear business advantages
-
-* Business case/perspective – why is this needed?
-    * See Signal app’s multi-team split approach for multiple redundant stacks
-        * TODO: see Yong’s slides about this, plus gather other use cases
-    * Evidence – why was Flutter created?
-        * Expected question – why not just use Flutter?
-            * Why Rust? → more specifically, why not just Javascript?
-
-
-We envision a future in which:
-1. Rust developers can create safe, beautiful, and robust applications that execute efficiently and performantly on a wide variety of platforms, especially mobile.
-2. Frontend developers using other languages are encouraged to come over to the ~~dark side~~ wonderful world of Rust and give it a try, with a seamless transition experience that helps overcome the steep learning curve commonly associated with Rust.
-3. The Rust ecosystem is broadened and strengthened, demonstrating to existing Rust experts in other domains that Rust is a great fit for application development, not just low-level systems and embedded programming.
