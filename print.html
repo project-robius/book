@@ -716,8 +716,9 @@ For example, Signal on Android allows placing secure chats behind a screen lock 
 Signal on Android cannot search only a single chat only, while other platforms support that filter.
 Mobile Signal apps offer contact-specific notifications, while desktop does not.
 The iOS app does not allow choice of fonts or changing font sizes and has different defaults than others, e.g., for embedded link previews, WiFi vs. cellular data usage, etc.</p>
+<hr />
 <p>Another similar motivating example is <a href="https://element.io/">Element</a>, a first-party <a href="https://element.io/matrix-benefits">Matrix chat</a> client that is also implemented separately on each platform, including <a href="https://github.com/vector-im/element-android">Android</a>, <a href="https://github.com/vector-im/element-ios">iOS</a>, <a href="https://github.com/vector-im/element-desktop">desktop</a>, and <a href="https://github.com/vector-im/element-web">web</a>.
-Unfortunately, the maintenance burden has proven difficult to handle, with Element apps receiving moderately poor user reviews (<a href="https://play.google.com/store/apps/details?id=im.vector.app">3.8⭐ Google Play</a>, <a href="https://apps.apple.com/us/app/element-messenger/id1083446067">3.5⭐ on Apple's App Store</a>) due to inconsistent behavior, bugs, and slow performance.
+Unfortunately, the maintenance burden has proven difficult to handle, with Element apps receiving moderately poor user reviews (<a href="https://play.google.com/store/apps/details?id=im.vector.app">3.8⭐ on Google Play</a>, <a href="https://apps.apple.com/us/app/element-messenger/id1083446067">3.5⭐ on Apple's App Store</a>) due to inconsistent behavior, bugs, and slow performance.
 This undoubtedly stems from the effort required to accommodate the idiosyncrasies of each platform, which steals developer focus away from improving the main app-level features and experience.</p>
 <p>Element themselves have acknowledged this issue and began developing a new set of applications called Element X, with a focus on sharing code across platforms via a shared <a href="https://github.com/matrix-org/matrix-rust-sdk">Matrix Rust SDK</a>.
 They are also exploring a new design system called <a href="https://compound.element.io/">Compound</a> that aims to establish consistent UI component implementations shared across iOS, Android, and the web.
@@ -726,10 +727,9 @@ However, both <a href="https://github.com/vector-im/compound#related-projects">C
 <p>Element claims that the Element X apps are <a href="https://element.io/blog/element-x-experience-the-future-of-element/">up to 6000 times faster</a> than the legacy Element apps, due in part to Rust:</p>
 <blockquote>
 <p>Our new Rust SDK makes development faster and more consistent across the Android and iOS apps, while providing a super-speedy and high quality implementation thanks to Rust’s legendary language safety features. </p>
-<div style="text-align: right"> — Element X blog post, July 6, 2023</div>
 </blockquote>
-<p>Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the <strong>attitude surrounding Rust</strong> — that switching to Rust will bring 💪 huge gains 💪.</p>
-<p>In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter<sup class="footnote-reference"><a href="#1">1</a></sup>, though <a href="whitepaper/motivation.html#rust-is-increasingly-popular-admired-and-wanted">as shown later</a>, d`evelopers vastly prefer using Rust over Dart, Flutter's required language.</p>
+<p>Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the <strong>attitude surrounding Rust</strong> — that switching to Rust will bring 💪 huge gains 💪.</p>
+<p>In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter<sup class="footnote-reference"><a href="#1">1</a></sup>, though <a href="whitepaper/motivation.html#rust-is-increasingly-popular-admired-and-wanted">as shown later</a>, developers vastly prefer using Rust over Dart, Flutter's required language.</p>
 <ul>
 <li>Ability to deliver a more consistent experience to customers across platforms.</li>
 <li>Ease of attracting talented developers due to a modern stack and better team culture/morale<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
@@ -741,7 +741,7 @@ However, both <a href="https://github.com/vector-im/compound#related-projects">C
 </ul>
 </li>
 </ul>
-<p>In conclusion, these favorable Rust experiences, together with Signal's and Element's challenging experiences with separate per-platform app repos, clearly motivate the need for a multi-platform application development toolkit in Rust.</p>
+<p>In conclusion, these favorable Rust experiences, together with the challenges faced by Signal and Element with maintaining separate per-platform app repositories, clearly motivate the need for a multi-platform application development toolkit in Rust.</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>A <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">survey by Very Good Ventures</a> found that businesses reported these benefits when switching to Flutter for app development. </p>
 </div>
@@ -764,32 +764,36 @@ The same study also found that:</p>
 <ul>
 <li>Developers of WASM tools have a strong preference for Rust,</li>
 <li>Rust is the most <em>desired</em> language for projects involving WASM, and</li>
-<li>The leading and most-used WASM runtimes are written in Rust, the <a href="https://github.com/bytecodealliance/wasmtime">Wasmtime</a> and <a href="https://github.com/wasmerio/wasmer">wasmer</a> projects.</li>
+<li>The leading and most-used WASM runtimes are written in Rust, the <a href="https://github.com/bytecodealliance/wasmtime"><code>Wasmtime</code></a> and <a href="https://github.com/wasmerio/wasmer"><code>wasmer</code></a> projects.</li>
 </ul>
 <p>These trends indicate that Rust adoption will continue to grow, and that other developers are open and willing to learn Rust in order to use it for new applications.</p>
 <h3 id="rust-combines-safety-with-usability-and-performance"><a class="header" href="#rust-combines-safety-with-usability-and-performance">Rust combines safety with usability and performance</a></h3>
-<p>Coming soon!</p>
-<!--
-If you're reading this book, you likely already know about the strengths of Rust and the benefits that it provides.
-ensures safety with no runtime costs
-
-
-* Rust offers safety and performance
-    * Safety leads to increased correctness, eliminating memory & concurrency bugs
-        * Higher reliability, less developer frustration and debugging difficulties
-        * Amenable to formal verification and type-carried invariants
-    * Less runtime overhead via static (compile-time) checking and guarantees
-        * Focus on zero-cost abstractions (e.g., async state machines)
-        * No garbage collection, static memory lifetime analysis
-        * Monomorphization of generics
-        * const eval, etc
-    * Interactive systems, especially mobile, require good performance and efficiency; achievable with Rust 
-        * Performance is key for a smooth, responsive UI without jank
-        * Efficiency is key for longer battery life, less heat output
-    * Built-in support for easy cross-platform compilation targeting
-    * Good, clear dependency management via cargo
-
--->
+<p>If you're reading this book, you likely already know about the strengths of Rust and the benefits that it provides.
+If not, we cover a select subset of those benefits here.</p>
+<p>First, Rust's strong, static type system guards against type errors at compile time, enabling full type safety.
+This type safety leads to memory safety, which eliminates entire classes of bugs: use after free, double free, buffer overflow and underflow, reading uninitialized memory, concurrency violations like race conditions, and more.</p>
+<p>Rust's memory safety is also statically determinable due to its type-based <a href="https://doc.rust-lang.org/nomicon/ownership.html">ownership model</a> and <a href="https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html">borrow checker</a>, which operate at compile-time.
+This allows Rust programs to execute efficiently without an underlying runtime or a garbage collector, as memory safety and resource management operations (like cleanup routines that invoke destructors) are deterministically inserted <em>by the compiler</em> when a resource is released by its owner (e.g., falls out of scope).</p>
+<p>Another aspect of Rust that contributes to its high performance is its focus on zero-cost abstractions, in which libraries expose higher-level, easier-to-use programming interfaces that still compile down to the equivalent of manually-optimized machine code.</p>
+<p>Some concrete examples of great Rust features include:</p>
+<ul>
+<li>Default <a href="https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#variables-and-mutability">immutability</a> of variables, <a href="https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing">scoped bindings and shadowing</a>, <a href="https://doc.rust-lang.org/book/ch03-05-control-flow.html#loop-labels-to-disambiguate-between-multiple-loops">loops with labels</a>, and more.</li>
+<li><a href="https://doc.rust-lang.org/book/ch05-00-structs.html">Struct definitions</a> with <a href="https://doc.rust-lang.org/book/ch07-02-defining-modules-to-control-scope-and-privacy.html">flexible naming visibility</a>, <a href="https://doc.rust-lang.org/book/ch05-01-defining-structs.html#unit-like-structs-without-any-fields">newtype wrapper patterns</a>, <a href="https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type">heterogeneous tuples</a>, etc.</li>
+<li>Excellent sum types (<a href="https://doc.rust-lang.org/book/ch06-00-enums.html"><code>enum</code>s</a>) with contained values, which, along with very ergonomic <a href="https://doc.rust-lang.org/book/ch06-02-match.html">pattern matching</a>, provides <a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">excellent error handling</a> using types like <code>Option</code> and <code>Result</code>.</li>
+<li>Support for <a href="https://doc.rust-lang.org/book/ch10-00-generics.html">generic type parameters</a> for types (structs), functions, associated trait items, and even <a href="https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html">explicit lifetimes</a> for borrowed values.</li>
+<li>Abstraction of interfaces using <a href="https://doc.rust-lang.org/book/ch10-02-traits.html">traits</a>, which can bound generic type parameters and even be used to imitate OOP-like polymorphism.</li>
+<li>Const evaluation of expressions at compile time.</li>
+<li><code>async</code> functions and traits, which the compiler transforms into state machines.</li>
+<li><a href="https://doc.rust-lang.org/book/ch13-00-functional-features.html">Functional programming language features</a> like iterators, closures with value capturing, combinators, and more.</li>
+<li>Both hygienic <a href="https://doc.rust-lang.org/book/ch19-06-macros.html#declarative-macros-with-macro_rules-for-general-metaprogramming">declarative macros</a> as well as <a href="https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes">procedural macros</a> for expressive meta-programming.</li>
+</ul>
+<p>Static type and memory safety enable Rust to catch many classes of bugs at <em>compile-time</em>, which reduces developer frustration, minimizes debugging difficulties, and provides a higher degree of confidence that a program will run correctly and reliably after deployment.
+Early error detection combined with <a href="https://www.rust-lang.org/learn">Rust's excellent documentation</a>, <a href="https://doc.rust-lang.org/book/">tutorial books</a>, IDE <a href="https://rust-analyzer.github.io/">language server plugins like <code>rust-analyzer</code></a>, detailed compiler error messages enable developers to be much more productive than other languages.</p>
+<p>In addition, Rust's safety model can restrict possible root causes of bugs to <a href="https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html"><code>unsafe</code> code</a> regions, though not for basic logic bugs. 
+Rust is also amenable to <a href="https://rust-formal-methods.github.io/tools.html">formal verification</a>, both in terms of verifying soundness of unsafe code blocks, correctness of unsafe-safe code boundaries, and correctness of type-carried invariants.</p>
+<p>While most Rust features and benefits apply to all platforms and execution environments, certain ones are key for mobile platforms.
+High performance is particularly important in interactive systems like mobile devices, in order to provide a smooth, responsive UI/UX without jank.
+Similarly, efficient operation is crucial to extend usable life in battery-powered devices and reduce thermal output in body-proximal hardware without active cooling.</p>
 <h3 id="rusts-core-ecosystem-is-excellent"><a class="header" href="#rusts-core-ecosystem-is-excellent">Rust's core ecosystem is excellent</a></h3>
 <p>Finally, Rust comes with an excellent suite of features and tooling beyond the core language itself.
 First, Rust's primary compiler <code>rustc</code> <a href="https://rustc-dev-guide.rust-lang.org/overview.html#code-generation">uses LLVM as a backend</a>, which affords it two main benefits: </p>
@@ -805,6 +809,11 @@ First, Rust's primary compiler <code>rustc</code> <a href="https://rustc-dev-gui
 It integrates tightly with <a href="https://crates.io/"><code>crates.io</code></a>, a registry of crates (projects) from the Rust community that makes it trivial to publish, distribute, and depend on other open-source crates.
 Furthermore, cargo makes it easy to specify dependencies as an exact version or a range of versions of a given crates by utilizing <a href="https://doc.rust-lang.org/cargo/reference/resolver.html#semver-compatibility">SemVer</a> semantic versioning.
 This design avoids the versioning hell that frequently plagues other languages and package manager, and there are even <a href="https://github.com/rust-lang/rust-semverver">community-provided tools</a> to ensure semver compliance when releasing new versions of a crate.</p>
+<p>Third, the set of packages available in the Rust world is <em>far</em> larger in both number and scope than that of Flutter, the leading cross-platform app dev framework.
+Rust's <code>crates.io</code> registry includes around 130,000 packages, while Flutter's registry of Dart packages <a href="https://pub.dev/"><code>pub.dev</code></a> is only about one quarter of that.
+More importantly, the <a href="https://crates.io/categories">breadth of domains</a> covered by the Rust crate ecosystem is massive, including topics like compression, cryptography, finance, game engines, mathematics, multimedia, parsing, scientific computing, text editing/processing, and more. 
+This allows a Rust app developer to immediately and easily bring in a ready-to-use set of dependencies across a wide berth of app topics, which more likely covers unique, niche app use cases.
+In comparison, the Dart package registry is primarily concerned with basic app topics, e.g., UI widgets and UX behavior.</p>
 <h2 id="rust-does-have-some-relevant-shortcomings"><a class="header" href="#rust-does-have-some-relevant-shortcomings">Rust does have some relevant shortcomings</a></h2>
 <p>Coming soon!</p>
 <!--
