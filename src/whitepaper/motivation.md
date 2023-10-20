@@ -205,10 +205,10 @@ In addition, Rust is leading the development of technologies for new platforms, 
 The same study also found that:
 * Developers of WASM tools have a strong preference for Rust,
 * Rust is the most *desired* language for projects involving WASM, and
-* The leading and most-used WASM runtimes are written in Rust, the [Wasmtime] and [wasmer] projects.
+* The leading and most-used WASM runtimes are written in Rust, the [`Wasmtime`] and [`wasmer`] projects.
 
-[Wasmtime]: https://github.com/bytecodealliance/wasmtime
-[wasmer]: https://github.com/wasmerio/wasmer
+[`Wasmtime`]: https://github.com/bytecodealliance/wasmtime
+[`wasmer`]: https://github.com/wasmerio/wasmer
 
 
 These trends indicate that Rust adoption will continue to grow, and that other developers are open and willing to learn Rust in order to use it for new applications.
@@ -230,7 +230,7 @@ Another aspect of Rust that contributes to its high performance is its focus on 
 Some concrete examples of great Rust features include:
 * Default [immutability](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#variables-and-mutability) of variables, [scoped bindings and shadowing](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing), [loops with labels](https://doc.rust-lang.org/book/ch03-05-control-flow.html#loop-labels-to-disambiguate-between-multiple-loops), and more.
 * [Struct definitions](https://doc.rust-lang.org/book/ch05-00-structs.html) with [flexible naming visibility](https://doc.rust-lang.org/book/ch07-02-defining-modules-to-control-scope-and-privacy.html), [newtype wrapper patterns](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#unit-like-structs-without-any-fields), [heterogeneous tuples](https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type), etc.
-* Excellent sum types ([`enum`s](https://doc.rust-lang.org/book/ch06-00-enums.html)) with contained values, which, along with very ergonomic [pattern matching](https://doc.rust-lang.org/book/ch06-02-match.html), faciliates [excellent error handling](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html) using types like `Option` and `Result`.
+* Excellent sum types ([`enum`s](https://doc.rust-lang.org/book/ch06-00-enums.html)) with contained values, which, along with very ergonomic [pattern matching](https://doc.rust-lang.org/book/ch06-02-match.html), provides [excellent error handling](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html) using types like `Option` and `Result`.
 * Support for [generic type parameters](https://doc.rust-lang.org/book/ch10-00-generics.html) for types (structs), functions, associated trait items, and even [explicit lifetimes](https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html) for borrowed values.
 * Abstraction of interfaces using [traits](https://doc.rust-lang.org/book/ch10-02-traits.html), which can bound generic type parameters and even be used to imitate OOP-like polymorphism.
 * Const evaluation of expressions at compile time.
