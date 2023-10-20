@@ -145,9 +145,10 @@ Signal on Android cannot search only a single chat only, while other platforms s
 Mobile Signal apps offer contact-specific notifications, while desktop does not.
 The iOS app does not allow choice of fonts or changing font sizes and has different defaults than others, e.g., for embedded link previews, WiFi vs. cellular data usage, etc.
 
+------------------------------
 
 Another similar motivating example is [Element](https://element.io/), a first-party [Matrix chat](https://element.io/matrix-benefits) client that is also implemented separately on each platform, including [Android](https://github.com/vector-im/element-android), [iOS](https://github.com/vector-im/element-ios), [desktop](https://github.com/vector-im/element-desktop), and [web](https://github.com/vector-im/element-web).
-Unfortunately, the maintenance burden has proven difficult to handle, with Element apps receiving moderately poor user reviews ([3.8⭐ Google Play](https://play.google.com/store/apps/details?id=im.vector.app), [3.5⭐ on Apple's App Store](https://apps.apple.com/us/app/element-messenger/id1083446067)) due to inconsistent behavior, bugs, and slow performance.
+Unfortunately, the maintenance burden has proven difficult to handle, with Element apps receiving moderately poor user reviews ([3.8⭐ on Google Play](https://play.google.com/store/apps/details?id=im.vector.app), [3.5⭐ on Apple's App Store](https://apps.apple.com/us/app/element-messenger/id1083446067)) due to inconsistent behavior, bugs, and slow performance.
 This undoubtedly stems from the effort required to accommodate the idiosyncrasies of each platform, which steals developer focus away from improving the main app-level features and experience.
 
 
@@ -160,12 +161,11 @@ However, both [Compound](https://github.com/vector-im/compound#related-projects)
 Element claims that the Element X apps are [up to 6000 times faster](https://element.io/blog/element-x-experience-the-future-of-element/) than the legacy Element apps, due in part to Rust:
 
 > Our new Rust SDK makes development faster and more consistent across the Android and iOS apps, while providing a super-speedy and high quality implementation thanks to Rust’s legendary language safety features. 
-> <div style="text-align: right"> — Element X blog post, July 6, 2023</div>
 
 
-Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the **attitude surrounding Rust** — that switching to Rust will bring 💪 huge gains 💪.
+Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the **attitude surrounding Rust** — that switching to Rust will bring 💪 huge gains 💪.
 
-In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter[^1], though [as shown later](#rust-is-increasingly-popular-admired-and-wanted), d`evelopers vastly prefer using Rust over Dart, Flutter's required language.
+In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter[^1], though [as shown later](#rust-is-increasingly-popular-admired-and-wanted), developers vastly prefer using Rust over Dart, Flutter's required language.
 * Ability to deliver a more consistent experience to customers across platforms.
 * Ease of attracting talented developers due to a modern stack and better team culture/morale[^1].
 * Elimination of redundant development effort across platforms, which: 
@@ -174,7 +174,7 @@ In general, a business stands to gain several competitive advantages from using 
     * Allows developers to focus more on UI/UX quality.
 
 
-In conclusion, these favorable Rust experiences, together with Signal's and Element's challenging experiences with separate per-platform app repos, clearly motivate the need for a multi-platform application development toolkit in Rust.
+In conclusion, these favorable Rust experiences, together with the challenges faced by Signal and Element with maintaining separate per-platform app repositories, clearly motivate the need for a multi-platform application development toolkit in Rust.
 
 
 [^1]: A [survey by Very Good Ventures](https://verygood.ventures/whitepaper/business-value-of-flutter) found that businesses reported these benefits when switching to Flutter for app development. 
@@ -216,29 +216,41 @@ These trends indicate that Rust adoption will continue to grow, and that other d
 
 ### Rust combines safety with usability and performance
 
-Coming soon!
-
-<!--
 If you're reading this book, you likely already know about the strengths of Rust and the benefits that it provides.
-ensures safety with no runtime costs
+If not, we cover a select subset of those benefits here.
+
+First, Rust's strong, static type system guards against type errors at compile time, enabling full type safety.
+This type safety leads to memory safety, which eliminates entire classes of bugs: use after free, double free, buffer overflow and underflow, reading uninitialized memory, concurrency violations like race conditions, and more.
+
+Rust's memory safety is also statically determinable due to its type-based [ownership model](https://doc.rust-lang.org/nomicon/ownership.html) and [borrow checker](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html), which operate at compile-time.
+This allows Rust programs to execute efficiently without an underlying runtime or a garbage collector, as memory safety and resource management operations (like cleanup routines that invoke destructors) are deterministically inserted *by the compiler* when a resource is released by its owner (e.g., falls out of scope).
+
+Another aspect of Rust that contributes to its high performance is its focus on zero-cost abstractions, in which libraries expose higher-level, easier-to-use programming interfaces that still compile down to the equivalent of manually-optimized machine code.
+
+Some concrete examples of great Rust features include:
+* Default [immutability](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#variables-and-mutability) of variables, [scoped bindings and shadowing](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing), [loops with labels](https://doc.rust-lang.org/book/ch03-05-control-flow.html#loop-labels-to-disambiguate-between-multiple-loops), and more.
+* [Struct definitions](https://doc.rust-lang.org/book/ch05-00-structs.html) with [flexible naming visibility](https://doc.rust-lang.org/book/ch07-02-defining-modules-to-control-scope-and-privacy.html), [newtype wrapper patterns](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#unit-like-structs-without-any-fields), [heterogeneous tuples](https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type), etc.
+* Excellent sum types ([`enum`s](https://doc.rust-lang.org/book/ch06-00-enums.html)) with contained values, which, along with very ergonomic [pattern matching](https://doc.rust-lang.org/book/ch06-02-match.html), faciliates [excellent error handling](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html) using types like `Option` and `Result`.
+* Support for [generic type parameters](https://doc.rust-lang.org/book/ch10-00-generics.html) for types (structs), functions, associated trait items, and even [explicit lifetimes](https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html) for borrowed values.
+* Abstraction of interfaces using [traits](https://doc.rust-lang.org/book/ch10-02-traits.html), which can bound generic type parameters and even be used to imitate OOP-like polymorphism.
+* Const evaluation of expressions at compile time.
+* `async` functions and traits, which the compiler transforms into state machines.
+* [Functional programming language features](https://doc.rust-lang.org/book/ch13-00-functional-features.html) like iterators, closures with value capturing, combinators, and more.
+* Both hygienic [declarative macros](https://doc.rust-lang.org/book/ch19-06-macros.html#declarative-macros-with-macro_rules-for-general-metaprogramming) as well as [procedural macros](https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes) for expressive meta-programming.
 
 
-* Rust offers safety and performance
-    * Safety leads to increased correctness, eliminating memory & concurrency bugs
-        * Higher reliability, less developer frustration and debugging difficulties
-        * Amenable to formal verification and type-carried invariants
-    * Less runtime overhead via static (compile-time) checking and guarantees
-        * Focus on zero-cost abstractions (e.g., async state machines)
-        * No garbage collection, static memory lifetime analysis
-        * Monomorphization of generics
-        * const eval, etc
-    * Interactive systems, especially mobile, require good performance and efficiency; achievable with Rust 
-        * Performance is key for a smooth, responsive UI without jank
-        * Efficiency is key for longer battery life, less heat output
-    * Built-in support for easy cross-platform compilation targeting
-    * Good, clear dependency management via cargo
+Static type and memory safety enable Rust to catch many classes of bugs at *compile-time*, which reduces developer frustration, minimizes debugging difficulties, and provides a higher degree of confidence that a program will run correctly and reliably after deployment.
+Early error detection combined with [Rust's excellent documentation](https://www.rust-lang.org/learn), [tutorial books](https://doc.rust-lang.org/book/), IDE [language server plugins like `rust-analyzer`](https://rust-analyzer.github.io/), detailed compiler error messages enable developers to be much more productive than other languages.
 
--->
+
+In addition, Rust's safety model can restrict possible root causes of bugs to [`unsafe` code](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) regions, though not for basic logic bugs. 
+Rust is also amenable to [formal verification](https://rust-formal-methods.github.io/tools.html), both in terms of verifying soundness of unsafe code blocks, correctness of unsafe-safe code boundaries, and correctness of type-carried invariants.
+
+
+While most Rust features and benefits apply to all platforms and execution environments, certain ones are key for mobile platforms.
+High performance is particularly important in interactive systems like mobile devices, in order to provide a smooth, responsive UI/UX without jank.
+Similarly, efficient operation is crucial to extend usable life in battery-powered devices and reduce thermal output in body-proximal hardware without active cooling.
+
 
 ### Rust's core ecosystem is excellent
 
@@ -253,6 +265,13 @@ Second, Rust's package manager [`cargo`](https://doc.rust-lang.org/cargo/) vastl
 It integrates tightly with [`crates.io`](https://crates.io/), a registry of crates (projects) from the Rust community that makes it trivial to publish, distribute, and depend on other open-source crates.
 Furthermore, cargo makes it easy to specify dependencies as an exact version or a range of versions of a given crates by utilizing [SemVer](https://doc.rust-lang.org/cargo/reference/resolver.html#semver-compatibility) semantic versioning.
 This design avoids the versioning hell that frequently plagues other languages and package manager, and there are even [community-provided tools](https://github.com/rust-lang/rust-semverver) to ensure semver compliance when releasing new versions of a crate.
+
+
+Third, the set of packages available in the Rust world is *far* larger in both number and scope than that of Flutter, the leading cross-platform app dev framework.
+Rust's `crates.io` registry includes around 130,000 packages, while Flutter's registry of Dart packages [`pub.dev`](https://pub.dev/) is only about one quarter of that.
+More importantly, the [breadth of domains](https://crates.io/categories) covered by the Rust crate ecosystem is massive, including topics like compression, cryptography, finance, game engines, mathematics, multimedia, parsing, scientific computing, text editing/processing, and more. 
+This allows a Rust app developer to immediately and easily bring in a ready-to-use set of dependencies across a wide berth of app topics, which more likely covers unique, niche app use cases.
+In comparison, the Dart package registry is primarily concerned with basic app topics, e.g., UI widgets and UX behavior.
 
 
 
