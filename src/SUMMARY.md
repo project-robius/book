@@ -1,15 +1,14 @@
 # The Robius Book
 
-## Introduction to Robius
 [Introduction to Robius](index.md)
 
 [→ Current Project Status](status.md)
 
 -------------------
 
-## Robius Whitepaper
+# Robius Whitepaper
 
-- [Robius Whitepaper](whitepaper/overview.md)
+- [Whitepaper Overview](whitepaper/overview.md)
     - [Motivation: why Robius?](whitepaper/motivation/motivation.md)
         - [Devs want Rust, but its ecosystem isn't ready](whitepaper/motivation/devs_want_rust.md)
         - [Clear business advantages](whitepaper/motivation/business_cases.md)
@@ -18,5 +17,4 @@
     - [Project Goals]() <!-- whitepaper/goals.md) -->
     - [Technical Requirements]() <!-- whitepaper/requirements.md) -->
     - [System Architecture]() <!-- whitepaper/design.md) -->
-
 
