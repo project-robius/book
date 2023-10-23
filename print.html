@@ -815,21 +815,26 @@ More importantly, the <a href="https://crates.io/categories">breadth of domains<
 This allows a Rust app developer to immediately and easily bring in a ready-to-use set of dependencies across a wide berth of app topics, which more likely covers unique, niche app use cases.
 In comparison, the Dart package registry is primarily concerned with basic app topics, e.g., UI widgets and UX behavior.</p>
 <h2 id="rust-does-have-some-relevant-shortcomings"><a class="header" href="#rust-does-have-some-relevant-shortcomings">Rust does have some relevant shortcomings</a></h2>
-<p>Coming soon!</p>
-<!--
-TODO: see powerpoint slides (slide 16)
-
-* Some deficiencies / weak points from a UI standpoint
-    * Lack of familiar OOP patterns; UI folks are accustomed to inheritance 
-    * Difficult to realize shared mutable state
-        * Typical closure-based callback pattern → overuse of  Rc<RefCell<…>> 
-    * Compilation is “slow”
-        * But constantly improving … wait for Nick’s talk
-
-* Potentially steep learning curve for frontend devs
-    * A survey from VFV about transitioning frontend devs from a native platform language to Flutter (the pre-eminent cross-platform app dev framework)
-
--->
+<p>While Rust offers an excellent experience for systems development, it does have some disadvantages from a UI standpoint.
+First, Rust doesn't support true type-level inheritance, only interface-level inheritance (at the trait level).
+This makes it difficult to realize the object-oriented programming design patterns to which UI developers are typically accustomed, e.g., a base displayable/widget class from which other subclasses can inherit and override functionality as necessary.</p>
+<p>Second, it can be difficult to implement access to shared mutable state in Rust.
+The ownership and borrow-checking semantics are not yet sophisticated enough to support all use cases and programming patterns typically found in UI development and state management frameworks, e.g., updating a state from a background thread that is then read by the main UI thread to re-display it on a widget.
+This is because Rust strictly enforces an &quot;aliasing XOR mutability&quot; rule for memory safety, meaning that there cannot be multiple simultaneous mutable aliases to a piece of shared state — only one mutable alias <em>or</em> multiple immutable aliases, but not both.</p>
+<p>For example, a global static variable can be freely aliased multiple times, but only accessed <em>mutably</em> through unsafe code, which is undesirable, or via a wrapper type that offers interior mutability with some sort of mutual exclusion mechanism, e.g., a <code>Mutex</code>.
+Even for states shared across different parts of a single thread, e.g., among async tasks, mutability still must be separated from aliasing, which is typically realized via the <code>RefCell</code> wrapper type (a single-threaded <code>Mutex</code> equivalent). 
+Also, as Rust lacks runtime garbage collection, the de facto alternative is to wrap states with reference-counter pointer type, e.g., <code>Rc</code> or <code>Arc</code>, for easy sharing of states whose lifetimes are only determinable at runtime.
+The result of these rules and conventions is that code becomes less ergonomic and readable, as it must be littered with <code>Arc&lt;Mutex&lt;State&gt;&gt;</code> or <code>Rc&lt;RefCell&lt;State&gt;&gt;</code> patterns rather than just direct access to <code>State</code>.</p>
+<p>Third, the Rust compiler has a reputation for being &quot;slow&quot; in that compile times for large Rust projects can be high, at least compared to other languages.
+This is primarily due to the need for and the ability of Rust to perform more safety checks at compile time than other languages.
+The problem with slow compilation is that it lengthens the iterative development cycle, making it more tedious to test a quick change and reducing the overall productivity of app developers.
+The good news is that compilation times are continuously improving thanks to the efforts of <a href="https://nnethercote.github.io/">Nick Nethercote and others</a>, but this still may pose a problem to Rust frameworks that wish to incorporate many features into a project build.</p>
+<p>Finally, Rust is known to have a steep learning curve, as the aforementioned rules for memory safety often present a barrier to newcomers, colloquially referred to as <a href="https://www.google.com/search?q=rust+fighting+the+borrow+checker">&quot;fighting the borrow checker&quot;</a>.
+While systems programmers and low-level programmers may already possess a deeper understanding of memory models and memory safety restrictions, frontend developers are less likely to be intimately familiar with these topics, as they are accustomed to working in higher-level languages that abstract away and handle memory management implicitly.
+A survey from Very Good Ventures found that <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">frontend developers needed around 3.5 months of retraining</a> to switch from a platform-native framework to the cross-platform Flutter framework before they could be equally productive.
+It is possible that switching frontend developers to a Rust-based multi-platform framework like Robius could impose an even steeper barrier to entry.
+As framework designers, we must be careful to strike a balance between explicitness, expressiveness, and simplicity in order to not get in the way of app developers' intentions and productivity.</p>
+<!-- cspell:ignore Nethercote -->
 
                     </main>
 
