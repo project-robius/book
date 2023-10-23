@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Clear business advantages - The Robius Book</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Documentation on the Robius project: multi-platform application development in Rust.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../../favicon.svg">
+                        <link rel="shortcut icon" href="../../favicon.png">
+                <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+                <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="../../status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Robius Whitepaper</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/business_cases.html" class="active"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Project Goals</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">The Robius Book</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="2-rust-app-dev-offers-clear-business-advantages"><a class="header" href="#2-rust-app-dev-offers-clear-business-advantages">2. Rust app dev offers clear business advantages</a></h2>
+<p>There is a strong business case to be made for application development in Rust.
+Several existing commercial applications have already been &quot;written in Rust,&quot; but Rust is only used to implement an internal business logic layer; the entire remainder of the app (e.g., frontend UI and UX) is written using different platform-specific native languages and SDKs.
+This leads to significant fragmentation and redundant development effort on each platform they wish to support, i.e., wasted expense.</p>
+<p>One such example is <a href="https://signal.org/">Signal</a>, a popular open-source messaging app focused on user privacy. 
+As pictured below, Signal maintains multiple separate repositories for each of its client apps on <a href="https://github.com/signalapp/Signal-Android">Android</a>, <a href="https://github.com/signalapp/Signal-iOS">iOS</a>, and <a href="https://github.com/signalapp/Signal-Desktop">desktop</a>, as well as for its <a href="https://github.com/signalapp/Signal-Server">server</a>.
+The Rust component of Signal is the shared <a href="https://github.com/signalapp/libsignal"><code>libsignal</code> crate</a>, which implements the main Signal protocol functionality in a platform-agnostic manner with multiple bindings to other platform-native languages like Swift, Typescript, and Java.</p>
+<p><img src="../img/signal.png" alt="Signal app architecture" /></p>
+<p>Each of these app repositories are non-trivial in size: 450K+ LoC on iOS, 350K+ LoC on Android, and 250K+ LoC on desktop.
+The only reason the Signal desktop app is not even more complex and large is because it is built atop the <a href="https://www.electronjs.org/">Electron</a> framework, which is known to be an <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-378233583">inefficient resource hog</a> with <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-384911415">poor accessibility</a> support.
+However, building desktop apps on Electron is still the default choice because it is easy and familiar, and at the time there were no viable alternatives to <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-376466372">the much more expensive option</a> of per-platform native apps on Windows, macOS, and Linux. </p>
+<p>The main disadvantage of having multiple separate app repos is that it is incredibly challenging maintain consistency in both appearance and behavior.
+General maintainability also becomes more tedious, as bugs that manifest differently across platforms must be addressed on an individual basis.
+To their credit, Signal has actually done an impressive job of just that, with help from the community, though naturally some minor issues do slip through the cracks.
+For example, Signal on Android allows placing secure chats behind a screen lock (e.g., using biometrics), but desktop Signal does not offer that.
+Signal on Android cannot search only a single chat only, while other platforms support that filter.
+Mobile Signal apps offer contact-specific notifications, while desktop does not.
+The iOS app does not allow choice of fonts or changing font sizes and has different defaults than others, e.g., for embedded link previews, WiFi vs. cellular data usage, etc.</p>
+<hr />
+<p>Another similar motivating example is <a href="https://element.io/">Element</a>, a first-party <a href="https://element.io/matrix-benefits">Matrix chat</a> client that is also implemented separately on each platform, including <a href="https://github.com/vector-im/element-android">Android</a>, <a href="https://github.com/vector-im/element-ios">iOS</a>, <a href="https://github.com/vector-im/element-desktop">desktop</a>, and <a href="https://github.com/vector-im/element-web">web</a>.
+Unfortunately, the maintenance burden has proven difficult to handle, with Element apps receiving moderately poor user reviews (<a href="https://play.google.com/store/apps/details?id=im.vector.app">3.8⭐ on Google Play</a>, <a href="https://apps.apple.com/us/app/element-messenger/id1083446067">3.5⭐ on Apple's App Store</a>) due to inconsistent behavior, bugs, and slow performance.
+This undoubtedly stems from the effort required to accommodate the idiosyncrasies of each platform, which steals developer focus away from improving the main app-level features and experience.</p>
+<p>Element themselves have acknowledged this issue and began developing a new set of applications called Element X, with a focus on sharing code across platforms via a shared <a href="https://github.com/matrix-org/matrix-rust-sdk">Matrix Rust SDK</a>.
+They are also exploring a new design system called <a href="https://compound.element.io/">Compound</a> that aims to establish consistent UI component implementations shared across iOS, Android, and the web.
+However, both <a href="https://github.com/vector-im/compound#related-projects">Compound</a> and Element X apps on <a href="https://github.com/vector-im/element-x-android">Android</a> and <a href="https://github.com/vector-im/element-x-ios">iOS</a> still exist separately and are implemented with platform-specific UI frameworks, e.g., Jetpack Compose and SwiftUI.</p>
+<!-- cspell:ignore Jetpack -->
+<p>Element claims that the Element X apps are <a href="https://element.io/blog/element-x-experience-the-future-of-element/">up to 6000 times faster</a> than the legacy Element apps, due in part to Rust:</p>
+<blockquote>
+<p>Our new Rust SDK makes development faster and more consistent across the Android and iOS apps, while providing a super-speedy and high quality implementation thanks to Rust’s legendary language safety features. </p>
+</blockquote>
+<p>Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the <strong>attitude surrounding Rust</strong> — that switching to Rust will bring 💪 huge gains 💪.</p>
+<p>In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter<sup class="footnote-reference"><a href="#1">1</a></sup>, though <a href="#rust-is-increasingly-popular-admired-and-wanted">as shown later</a>, developers vastly prefer using Rust over Dart, Flutter's required language.</p>
+<ul>
+<li>Ability to deliver a more consistent experience to customers across platforms.</li>
+<li>Ease of attracting talented developers due to a modern stack and better team culture/morale<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
+<li>Elimination of redundant development effort across platforms, which: 
+<ul>
+<li>Saves money due to higher productivity, </li>
+<li>Results in a faster time to market, and</li>
+<li>Allows developers to focus more on UI/UX quality.</li>
+</ul>
+</li>
+</ul>
+<p>In conclusion, these favorable Rust experiences, together with the challenges faced by Signal and Element with maintaining separate per-platform app repositories, clearly motivate the need for a multi-platform application development toolkit in Rust.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>A <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">survey by Very Good Ventures</a> found that businesses reported these benefits when switching to Flutter for app development. </p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../../whitepaper/motivation/devs_want_rust.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../../whitepaper/motivation/rust_is_right.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../../whitepaper/motivation/devs_want_rust.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../../whitepaper/motivation/rust_is_right.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

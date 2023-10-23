@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Robius Whitepaper</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Project Goals</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Robius Whitepaper</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Project Goals</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -610,40 +610,36 @@ This makes for a nice color-based connection to Rust, our programming language o
 <div style="break-before: page; page-break-before: always;"></div><h1 id="motivation-why-robius"><a class="header" href="#motivation-why-robius">Motivation: why Robius?</a></h1>
 <p>Several motivating factors inspired us to start the Robius project:</p>
 <ol>
-<li>App developers want to use Rust, but aren’t sure where or how to get started due to Rust's app dev ecosystem being in a rough state. </li>
+<li>App developers want to use Rust, but aren’t sure where or how to get started due to Rust's app dev ecosystem being in a rough state. 
+<ul>
+<li>Paralysis of choice among dozens of partial solutions</li>
+<li>Unclear how to integrate many disparate projects</li>
+</ul>
+</li>
 </ol>
-<!-- 
-    * Paralysis of choice among dozens of partial solutions
-    * Unclear how to integrate many disparate projects
-     -->
+<p> </p>
 <ol start="2">
-<li>There are clear <strong>business advantages</strong> to writing applications in a multi-platform Rust framework.</li>
+<li>There are clear <strong>business advantages</strong> to writing applications in a multi-platform Rust framework.
+<ul>
+<li>Provide a consistent experience for devs and customers</li>
+<li>Avoid redundant dev effort → save money, faster time to market</li>
+</ul>
+</li>
 </ol>
-<!-- 
-    * Consistent experience for devs and customers
-    * Avoid redundant dev effort → save money, faster time to market
-     -->
+<p> </p>
 <ol start="3">
-<li>Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... <em>yet</em>.</li>
+<li>Rust is a great language and the right choice for many programming domains, but not for multi-platform apps ... <em>yet</em>.
+<ul>
+<li>Safety → increased correctness, reliability, lower debugging costs</li>
+<li>High performance → responsive, jank-free UI</li>
+<li>No runtime or garbage collection → energy efficiency on mobile devices</li>
+</ul>
+</li>
 </ol>
-<!-- 
-    * Safety → increased correctness, reliability
-    * Performance efficiency → responsive, jank-free UI
-    * Potential to unify two dev worlds: systems + frontend apps
--->
+<p> </p>
 <p>The following sections examine each of these factors in detail.</p>
-<h2 id="1-developers-really-want-to-write-apps-in-rust"><a class="header" href="#1-developers-really-want-to-write-apps-in-rust">1. Developers <em>really</em> want to write apps in Rust</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="1-developers-really-want-to-write-apps-in-rust"><a class="header" href="#1-developers-really-want-to-write-apps-in-rust">1. Developers <em>really</em> want to write apps in Rust</a></h2>
 <!-- ## 1. Developers express great interest in writing Rust apps -->
-<!-- 
-* App developers want to use Rust, but are unsure how to get started
-    * Fractured ecosystem – many competing crates
-        * Official Rust project team/ecosystem doesn’t recommend any specific toolkit
-        * Discovery of crates is difficult, non-standardized
-        * Many crates offer overlapping features, are abandoned/incomplete
-    * Unclear integration opportunities
-        * Which crates work with which others?
-    * Poor documentation; lack of examples, tutorials
--->
 <p>Online programming forums are filled with posts asking how to use Rust to develop mobile, desktop, and web applications. 
 We have observed this trend for several years in two main flavors:</p>
 <ul>
@@ -694,18 +690,14 @@ Holistic tutorials and complete examples are few and hard to come by, which exac
 Without end-to-end sample code, it is challenging for an expert, let alone a newcomer to the worlds of app dev and Rust, to compose a working system stack by integrating multiple disparate crates together. </p>
 <p>One guiding light in this space is Dioxus, which has <a href="https://dioxuslabs.com/learn/0.4/reference">recently released high-quality comprehensive documentation</a> for both external users and internal contributors along with several well-commented demo apps, making it both easy and enticing to use Dioxus to create new apps.</p>
 <p>For a Rust application development framework to gain real traction, it must lead the pack in terms of documentation quality, tutorial thoroughness, and variety and depth of real-world example application code.</p>
-<!-- 
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
- -->
-<h2 id="2-rust-app-dev-offers-clear-business-advantages"><a class="header" href="#2-rust-app-dev-offers-clear-business-advantages">2. Rust app dev offers clear business advantages</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="2-rust-app-dev-offers-clear-business-advantages"><a class="header" href="#2-rust-app-dev-offers-clear-business-advantages">2. Rust app dev offers clear business advantages</a></h2>
 <p>There is a strong business case to be made for application development in Rust.
 Several existing commercial applications have already been &quot;written in Rust,&quot; but Rust is only used to implement an internal business logic layer; the entire remainder of the app (e.g., frontend UI and UX) is written using different platform-specific native languages and SDKs.
 This leads to significant fragmentation and redundant development effort on each platform they wish to support, i.e., wasted expense.</p>
 <p>One such example is <a href="https://signal.org/">Signal</a>, a popular open-source messaging app focused on user privacy. 
 As pictured below, Signal maintains multiple separate repositories for each of its client apps on <a href="https://github.com/signalapp/Signal-Android">Android</a>, <a href="https://github.com/signalapp/Signal-iOS">iOS</a>, and <a href="https://github.com/signalapp/Signal-Desktop">desktop</a>, as well as for its <a href="https://github.com/signalapp/Signal-Server">server</a>.
 The Rust component of Signal is the shared <a href="https://github.com/signalapp/libsignal"><code>libsignal</code> crate</a>, which implements the main Signal protocol functionality in a platform-agnostic manner with multiple bindings to other platform-native languages like Swift, Typescript, and Java.</p>
-<p><img src="whitepaper/img/signal.png" alt="Signal app architecture" /></p>
+<p><img src="whitepaper/motivation/../img/signal.png" alt="Signal app architecture" /></p>
 <p>Each of these app repositories are non-trivial in size: 450K+ LoC on iOS, 350K+ LoC on Android, and 250K+ LoC on desktop.
 The only reason the Signal desktop app is not even more complex and large is because it is built atop the <a href="https://www.electronjs.org/">Electron</a> framework, which is known to be an <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-378233583">inefficient resource hog</a> with <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-384911415">poor accessibility</a> support.
 However, building desktop apps on Electron is still the default choice because it is easy and familiar, and at the time there were no viable alternatives to <a href="https://github.com/signalapp/Signal-Desktop/issues/2178#issuecomment-376466372">the much more expensive option</a> of per-platform native apps on Windows, macOS, and Linux. </p>
@@ -729,7 +721,7 @@ However, both <a href="https://github.com/vector-im/compound#related-projects">C
 <p>Our new Rust SDK makes development faster and more consistent across the Android and iOS apps, while providing a super-speedy and high quality implementation thanks to Rust’s legendary language safety features. </p>
 </blockquote>
 <p>Although the new sliding sync protocol is likely responsible for the majority of those performance gains, this statement speaks to the <strong>attitude surrounding Rust</strong> — that switching to Rust will bring 💪 huge gains 💪.</p>
-<p>In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter<sup class="footnote-reference"><a href="#1">1</a></sup>, though <a href="whitepaper/motivation.html#rust-is-increasingly-popular-admired-and-wanted">as shown later</a>, developers vastly prefer using Rust over Dart, Flutter's required language.</p>
+<p>In general, a business stands to gain several competitive advantages from using a cross-platform Rust app dev toolkit, as listed below. These mostly overlap with the benefits of switching to Flutter<sup class="footnote-reference"><a href="#1">1</a></sup>, though <a href="whitepaper/motivation/business_cases.html#rust-is-increasingly-popular-admired-and-wanted">as shown later</a>, developers vastly prefer using Rust over Dart, Flutter's required language.</p>
 <ul>
 <li>Ability to deliver a more consistent experience to customers across platforms.</li>
 <li>Ease of attracting talented developers due to a modern stack and better team culture/morale<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
@@ -745,21 +737,17 @@ However, both <a href="https://github.com/vector-im/compound#related-projects">C
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>A <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">survey by Very Good Ventures</a> found that businesses reported these benefits when switching to Flutter for app development. </p>
 </div>
-<!-- 
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
- -->
-<h2 id="3-rust-is-the-right-choice-for-the-future-of-app-dev"><a class="header" href="#3-rust-is-the-right-choice-for-the-future-of-app-dev">3. Rust is the right choice for the future of app dev</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="3-rust-is-the-right-choice-for-the-future-of-app-dev"><a class="header" href="#3-rust-is-the-right-choice-for-the-future-of-app-dev">3. Rust is the right choice for the future of app dev</a></h2>
 <p>Both current trends and key aspects of Rust reinforce our assertion that Rust is the best choice for the next generation of multi-platform application development.</p>
 <h3 id="rust-is-increasingly-popular-admired-and-wanted"><a class="header" href="#rust-is-increasingly-popular-admired-and-wanted">Rust is increasingly popular, admired, and wanted</a></h3>
 <p>Rust has been voted the most admired language for the past 8 years in a row (2015 - 2023), according to the <a href="https://survey.stackoverflow.co/2023/">StackOverflow annual developer survey</a>.
 For the first time, Rust also became the most wanted language this year (2023).</p>
 <p float="left">
-  <img align="top" src="whitepaper/img/rust_loved.png" width="66.9%" />
-  <img align="top" src="whitepaper/img/rust_wanted.png" width="30%" />
+  <img align="top" src="whitepaper/motivation/img/rust_loved.png" width="66.9%" />
+  <img align="top" src="whitepaper/motivation/img/rust_wanted.png" width="30%" />
 </p>
 <p>In addition, Rust is leading the development of technologies for new platforms, e.g., it is the <a href="https://blog.scottlogic.com/2023/10/18/the-state-of-webassembly-2023.html">most frequently used language for WebAssembly (WASM)</a> for the third year running.
-<img src="whitepaper/img/wasm-language-usage.png" alt="Rust is highly used in WebAssembly projects" />
+<img src="whitepaper/motivation/../img/wasm-language-usage.png" alt="Rust is highly used in WebAssembly projects" />
 The same study also found that:</p>
 <ul>
 <li>Developers of WASM tools have a strong preference for Rust,</li>
@@ -814,10 +802,12 @@ Rust's <code>crates.io</code> registry includes around 130,000 packages, while F
 More importantly, the <a href="https://crates.io/categories">breadth of domains</a> covered by the Rust crate ecosystem is massive, including topics like compression, cryptography, finance, game engines, mathematics, multimedia, parsing, scientific computing, text editing/processing, and more. 
 This allows a Rust app developer to immediately and easily bring in a ready-to-use set of dependencies across a wide berth of app topics, which more likely covers unique, niche app use cases.
 In comparison, the Dart package registry is primarily concerned with basic app topics, e.g., UI widgets and UX behavior.</p>
-<h2 id="rust-does-have-some-relevant-shortcomings"><a class="header" href="#rust-does-have-some-relevant-shortcomings">Rust does have some relevant shortcomings</a></h2>
-<p>While Rust offers an excellent experience for systems development, it does have some disadvantages from a UI standpoint.
-First, Rust doesn't support true type-level inheritance, only interface-level inheritance (at the trait level).
+<div style="break-before: page; page-break-before: always;"></div><h2 id="rust-does-have-some-relevant-shortcomings"><a class="header" href="#rust-does-have-some-relevant-shortcomings">Rust does have some relevant shortcomings</a></h2>
+<p>While Rust offers an excellent experience for systems development, it does have some disadvantages from a UI standpoint, many of which represent obstacles for its usage in application development.</p>
+<h3 id="1-lack-of-inheritance"><a class="header" href="#1-lack-of-inheritance">1. Lack of inheritance</a></h3>
+<p>First, Rust doesn't support true type-level inheritance, only interface-level inheritance (at the trait level).
 This makes it difficult to realize the object-oriented programming design patterns to which UI developers are typically accustomed, e.g., a base displayable/widget class from which other subclasses can inherit and override functionality as necessary.</p>
+<h3 id="2-representing-shared-mutable-state-is-hard"><a class="header" href="#2-representing-shared-mutable-state-is-hard">2. Representing shared mutable state is hard</a></h3>
 <p>Second, it can be difficult to implement access to shared mutable state in Rust.
 The ownership and borrow-checking semantics are not yet sophisticated enough to support all use cases and programming patterns typically found in UI development and state management frameworks, e.g., updating a state from a background thread that is then read by the main UI thread to re-display it on a widget.
 This is because Rust strictly enforces an &quot;aliasing XOR mutability&quot; rule for memory safety, meaning that there cannot be multiple simultaneous mutable aliases to a piece of shared state — only one mutable alias <em>or</em> multiple immutable aliases, but not both.</p>
@@ -825,10 +815,12 @@ This is because Rust strictly enforces an &quot;aliasing XOR mutability&quot; ru
 Even for states shared across different parts of a single thread, e.g., among async tasks, mutability still must be separated from aliasing, which is typically realized via the <code>RefCell</code> wrapper type (a single-threaded <code>Mutex</code> equivalent). 
 Also, as Rust lacks runtime garbage collection, the de facto alternative is to wrap states with reference-counter pointer type, e.g., <code>Rc</code> or <code>Arc</code>, for easy sharing of states whose lifetimes are only determinable at runtime.
 The result of these rules and conventions is that code becomes less ergonomic and readable, as it must be littered with <code>Arc&lt;Mutex&lt;State&gt;&gt;</code> or <code>Rc&lt;RefCell&lt;State&gt;&gt;</code> patterns rather than just direct access to <code>State</code>.</p>
+<h3 id="3-slow-compilation"><a class="header" href="#3-slow-compilation">3. Slow compilation</a></h3>
 <p>Third, the Rust compiler has a reputation for being &quot;slow&quot; in that compile times for large Rust projects can be high, at least compared to other languages.
 This is primarily due to the need for and the ability of Rust to perform more safety checks at compile time than other languages.
 The problem with slow compilation is that it lengthens the iterative development cycle, making it more tedious to test a quick change and reducing the overall productivity of app developers.
 The good news is that compilation times are continuously improving thanks to the efforts of <a href="https://nnethercote.github.io/">Nick Nethercote and others</a>, but this still may pose a problem to Rust frameworks that wish to incorporate many features into a project build.</p>
+<h3 id="4-steep-learning-curve"><a class="header" href="#4-steep-learning-curve">4. Steep learning curve</a></h3>
 <p>Finally, Rust is known to have a steep learning curve, as the aforementioned rules for memory safety often present a barrier to newcomers, colloquially referred to as <a href="https://www.google.com/search?q=rust+fighting+the+borrow+checker">&quot;fighting the borrow checker&quot;</a>.
 While systems programmers and low-level programmers may already possess a deeper understanding of memory models and memory safety restrictions, frontend developers are less likely to be intimately familiar with these topics, as they are accustomed to working in higher-level languages that abstract away and handle memory management implicitly.
 A survey from Very Good Ventures found that <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">frontend developers needed around 3.5 months of retraining</a> to switch from a platform-native framework to the cross-platform Flutter framework before they could be equally productive.
