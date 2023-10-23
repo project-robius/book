@@ -8,8 +8,8 @@ Rust has been voted the most admired language for the past 8 years in a row (201
 For the first time, Rust also became the most wanted language this year (2023).
 
 <p float="left">
-  <img align="top" src="img/rust_loved.png" width="66.9%" />
-  <img align="top" src="img/rust_wanted.png" width="30%" />
+  <img align="top" src="../img/rust_loved.png" width="66.9%" />
+  <img align="top" src="../img/rust_wanted.png" width="30%" />
 </p>
 
 In addition, Rust is leading the development of technologies for new platforms, e.g., it is the [most frequently used language for WebAssembly (WASM)](https://blog.scottlogic.com/2023/10/18/the-state-of-webassembly-2023.html) for the third year running.
