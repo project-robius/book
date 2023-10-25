@@ -54,9 +54,12 @@ The following diagram shows the proposed architecture of this reference design, 
 
 ## Flagship apps and examples
 
+Coming soon!
 
 ## Advertise business value
 
-[Long term] Evangelize for usage of Rust + Robius in app dev business cases
-[Long term] Drive the development of a stable, robust app dev Rust ecosystem
+Coming soon!
+
+<!-- [Long term] Evangelize for usage of Rust + Robius in app dev business cases
+[Long term] Drive the development of a stable, robust app dev Rust ecosystem -->
 
