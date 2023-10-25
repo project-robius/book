@@ -5,7 +5,7 @@ The Robius project has set forth the following goals:
 * Establish a Rust app dev community and drive ecosystem development
 * Create reference design of full app + system stack
 * Develop flagship apps and simpler demo apps as proofs of concept
-* [Future] Give feedback to Rust's lang, libs, and cargo teams
+* <span style="color: gray;"> [Future] Give feedback to Rust's lang, libs, and cargo teams </span>
 
 
 The following sections provide more details on each of these goals.
@@ -89,10 +89,18 @@ For the example applications, some initial ideas are listed below, several of wh
 * Basic drawing/sketch app, e.g., paint
 
 
-## Advertise business value
+## Advertise business value of Robius
 
-Coming soon!
+In the long term, our ultimate goal is drive the development of Robius into a robust, stable ecosystem that inherently demonstrates what is possible with Rust.
+We can then leverage the positive experiences of creating apps atop Robius to evangelize for the usage of Rust in the app dev world, especially in business scenarios.
 
-<!-- [Long term] Evangelize for usage of Rust + Robius in app dev business cases
-[Long term] Drive the development of a stable, robust app dev Rust ecosystem -->
+
+Our objective is to show that businesses stand to gain the following benefits from switching to Robius, many of which correspond to [the motivating factors](./motivation/business_cases.md) behind the Robius vision itself.
+* A modern framework and a highly-desired language more easily attract top developers and improves team culture and morale.
+* A multi-platform framework reduces headcount overhead, as developers only need to know Rust and the framework, not the intimate details of each platform.
+* Customers get to enjoy a more consistent UI and UX across disparate platforms.
+* Maintainability is easier, enabling more rapid and consistent bug fixes at lower cost, which also leads to higher customer satisfaction and engagement.
+* Smooth integration with the rest of Rust's huge ecosystem of crates allows developers to lean on the significant shoulders of FOSS projects.
+* An open-source, distributed, and decentralized project structure gives business leaders confidence about the staying power and future directions of the framework.
+* Last but not least, developers get to use Rust!
 
