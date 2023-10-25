@@ -24,7 +24,7 @@ In short, this amounts to identifying key projects in the space and inviting the
 Thus far, we have welcomed two major UI frameworks, Makepad and Dioxus, and a platform abstraction framework, Osiris, into the community.
 We aim to foster collaboration between these founding projects in order to enable each project to jointly benefit from contributions and improvements to other projects.
 
-> If you are interested in adding your project or suggesting another project to add to Robius, please don't hesistate to reach out to us.
+> If you are interested in adding your project or suggesting another project to add to Robius, please don't hesitate to reach out to us.
 > We're always looking for more projects to include in the Robius ecosystem!
 
 
