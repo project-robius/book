@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Project Goals</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -589,7 +589,7 @@ We plan to introduce a pre-alpha version of the full Robius system stack (everyt
 <p>You can also view this whitepaper content as:</p>
 <ul>
 <li><a href="https://github.com/project-robius/files/raw/041e980ec1d14bf325f1fb2ba743f8ed142a70cb/Robius%20-%20A%20Vision%20for%20Multi-platform%20App%20Development%20in%20Rust.pptx">a PowerPoint slide deck (18MB)</a>, <a href="https://github.com/project-robius/files/blob/041e980ec1d14bf325f1fb2ba743f8ed142a70cb/Robius%20-%20A%20Vision%20for%20Multi-platform%20App%20Development%20in%20Rust.pdf">PDF version (15MB)</a></li>
-<li><a href="https://youtu.be/8JfOXfmwotQ?si=kLogqnaApYPNuSq8&amp;t=6802">a conference talk on YouTube</a></li>
+<li>A conference talk about Robius — <a href="https://youtu.be/8JfOXfmwotQ?si=kLogqnaApYPNuSq8&amp;t=6802">YouTube link</a>, <a href="https://www.bilibili.com/video/BV1AN4y1Z7vs/">Bilibili link</a></li>
 </ul>
 <h2 id="elevator-pitch--robius-in-60-seconds"><a class="header" href="#elevator-pitch--robius-in-60-seconds">Elevator pitch — Robius in 60 seconds</a></h2>
 <p>The Robius project's primary focus is to provide a multi-platform application development toolkit where both the app and the entire system stack are written completely in Rust.
@@ -827,6 +827,51 @@ A survey from Very Good Ventures found that <a href="https://verygood.ventures/w
 It is possible that switching frontend developers to a Rust-based multi-platform framework like Robius could impose an even steeper barrier to entry.
 As framework designers, we must be careful to strike a balance between explicitness, expressiveness, and simplicity in order to not get in the way of app developers' intentions and productivity.</p>
 <!-- cspell:ignore Nethercote -->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="project-goals"><a class="header" href="#project-goals">Project Goals</a></h1>
+<p>The Robius project has established and will strive to achieve the following goals:</p>
+<ul>
+<li>Establish a Rust app dev community and drive ecosystem development</li>
+<li>Create reference design of full app + system stack</li>
+<li>Develop flagship apps and simpler demo apps as proofs of concept</li>
+<li>[Future] Give feedback to Rust's lang, libs, and cargo teams</li>
+</ul>
+<p>The following sections provide more details on each of these goals.
+All in all, we hope that Robius will attract front-end developers to the world of Rust and encourage existing Rust experts to broaden their horizons and explore the application development domain as well.</p>
+<h2 id="community-and-ecosystem"><a class="header" href="#community-and-ecosystem">Community and ecosystem</a></h2>
+<p>Our goal is to establish the Robius project as a collective, communal space for all things related to multi-platform app development in Rust.
+As this community doesn't yet exist, we must build it from the ground up.
+Thus far, we have the <code>project-robius</code> GitHub organization that aims to serve as a starting point, but once the vision has had more time to incubate and grow, we will create a working group related to app dev in Rust.
+We also intend to host and maintain an &quot;are we app yet&quot; website that tracks the status and progress of our Rust app dev work in a public and easy-to-follow format.</p>
+<p>As part of building this community, we aim to collect and maintain a set of crates related to app dev that are highly functional and actively supported.
+In short, this amounts to identifying key projects in the space and inviting their authors, maintainers, and contributors to participate in the larger Robius vision.
+Thus far, we have welcomed two major UI frameworks, Makepad and Dioxus, and a platform abstraction framework, Osiris, into the community.
+We aim to foster collaboration between these founding projects in order to enable each project to jointly benefit from contributions and improvements to other projects.</p>
+<blockquote>
+<p>If you are interested in adding your project or suggesting another project to add to Robius, please don't hesitate to reach out to us.
+We're always looking for more projects to include in the Robius ecosystem!</p>
+</blockquote>
+<p>Another major goal of the Robius vision is to drive the <em>non-code</em> components of the ecosystem forward, i.e., documentation.
+This whitepaper is one example, but we also strive to publish and support holistic (cross-project) docs and detailed tutorials, as well as provide a platform for blogs and discussion forums related to Rust app development.</p>
+<h2 id="reference-design-for-full-system-stack"><a class="header" href="#reference-design-for-full-system-stack">Reference design for full-system stack</a></h2>
+<p>The central goal of the Robius project is to deliver a complete working solution for multi-platform app development, in which all components in both the application and the systems stack are written in Rust.</p>
+<p>We call this a &quot;reference design&quot; because it embodies only <em>one</em> incarnation of how the ecosystem of loosely-coupled components can be assembled into a fully-working stack.
+The intent is for the reference design to act as a &quot;blessed&quot; systems stack that new developers can use to quickly and easily start building apps, i.e., a pre-integrated combination of components that are known to work well together.
+At the same time, we wish to allow expert developers to tailor the stack to meet their more complex needs, e.g., by selecting or building different components to replace individual pieces of the stack.</p>
+<p>The goal of the Robius reference design is to support all major platforms and OS environments, with mobile and desktop being the priority targets:</p>
+<ul>
+<li>Mobile: Android, iOS</li>
+<li>Desktop: Linux, macOS, Windows</li>
+<li>Other: OpenHarmony</li>
+<li>Web (plus WebAssembly) </li>
+</ul>
+<p>The following diagram shows the proposed architecture of this reference design, which is described in greater detail in the system architecture section of this whitepaper.</p>
+<p><img src="whitepaper/img/reference_design.png" alt="Robius Reference Design" /></p>
+<h2 id="flagship-apps-and-examples"><a class="header" href="#flagship-apps-and-examples">Flagship apps and examples</a></h2>
+<p>Coming soon!</p>
+<h2 id="advertise-business-value"><a class="header" href="#advertise-business-value">Advertise business value</a></h2>
+<p>Coming soon!</p>
+<!-- [Long term] Evangelize for usage of Rust + Robius in app dev business cases
+[Long term] Drive the development of a stable, robust app dev Rust ecosystem -->
 
                     </main>
 
