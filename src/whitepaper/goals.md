@@ -100,7 +100,7 @@ Our objective is to show that businesses stand to gain the following benefits fr
 * A multi-platform framework reduces headcount overhead, as developers only need to know Rust and the framework, not the intimate details of each platform.
 * Customers get to enjoy a more consistent UI and UX across disparate platforms.
 * Maintainability is easier, enabling more rapid and consistent bug fixes at lower cost, which also leads to higher customer satisfaction and engagement.
-* Smooth integration with the rest of Rust's huge ecosystem of crates allows developers to lean on the significant shoulders of FOSS projects.
-* An open-source, distributed, and decentralized project structure gives business leaders confidence about the staying power and future directions of the framework.
+* Smooth integration with the rest of Rust's huge ecosystem of crates allows developers to lean on the significant shoulders of open-source projects, especially beyond UI elements.
+* An open-source, distributed, and decentralized project structure gives business leaders confidence about the staying power and independent directions of the framework.
 * Last but not least, developers get to use Rust!
 
