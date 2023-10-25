@@ -828,7 +828,7 @@ It is possible that switching frontend developers to a Rust-based multi-platform
 As framework designers, we must be careful to strike a balance between explicitness, expressiveness, and simplicity in order to not get in the way of app developers' intentions and productivity.</p>
 <!-- cspell:ignore Nethercote -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="project-goals"><a class="header" href="#project-goals">Project Goals</a></h1>
-<p>The Robius project has established and will strive to achieve the following goals:</p>
+<p>The Robius project has set forth the following goals:</p>
 <ul>
 <li>Establish a Rust app dev community and drive ecosystem development</li>
 <li>Create reference design of full app + system stack</li>
@@ -839,8 +839,8 @@ As framework designers, we must be careful to strike a balance between explicitn
 All in all, we hope that Robius will attract front-end developers to the world of Rust and encourage existing Rust experts to broaden their horizons and explore the application development domain as well.</p>
 <h2 id="community-and-ecosystem"><a class="header" href="#community-and-ecosystem">Community and ecosystem</a></h2>
 <p>Our goal is to establish the Robius project as a collective, communal space for all things related to multi-platform app development in Rust.
-As this community doesn't yet exist, we must build it from the ground up.
-Thus far, we have the <code>project-robius</code> GitHub organization that aims to serve as a starting point, but once the vision has had more time to incubate and grow, we will create a working group related to app dev in Rust.
+As this community doesn't yet exist, we are building it from the ground up.
+Thus far, we have the <a href="https://github.com/project-robius/"><code>project-robius</code> GitHub organization</a> that aims to serve as a starting point, but once the vision has had more time to incubate and grow, we will create a working group related to app dev in Rust.
 We also intend to host and maintain an &quot;are we app yet&quot; website that tracks the status and progress of our Rust app dev work in a public and easy-to-follow format.</p>
 <p>As part of building this community, we aim to collect and maintain a set of crates related to app dev that are highly functional and actively supported.
 In short, this amounts to identifying key projects in the space and inviting their authors, maintainers, and contributors to participate in the larger Robius vision.
@@ -867,7 +867,46 @@ At the same time, we wish to allow expert developers to tailor the stack to meet
 <p>The following diagram shows the proposed architecture of this reference design, which is described in greater detail in the system architecture section of this whitepaper.</p>
 <p><img src="whitepaper/img/reference_design.png" alt="Robius Reference Design" /></p>
 <h2 id="flagship-apps-and-examples"><a class="header" href="#flagship-apps-and-examples">Flagship apps and examples</a></h2>
-<p>Coming soon!</p>
+<p>In addition to the systems stack reference design, our other important deliverable goal is a series of open-source applications, in two broad categories:</p>
+<ol>
+<li>Flagships apps
+<ul>
+<li>Full set of features with robust UI &amp; UX</li>
+<li>Intended for actual usage/dogfooding</li>
+<li>Commercial quality; publishable to app stores</li>
+</ul>
+</li>
+<li>Example/demo apps
+<ul>
+<li>Simple structure intended to demonstrate a single feature</li>
+<li>Minimal, incomplete UI &amp; UX</li>
+<li>Missing features represented by mock stub implementations, e.g., simulated server/database backends</li>
+<li>Can be used for automated testing/benchmarking</li>
+</ul>
+</li>
+</ol>
+<p>We will strive for both flagship and example applications to be designed clearly, well-structured, thoroughly commented, and accompanied by documentation like a tutorial-style walkthrough.
+The overarching goal is for these apps to be easily forked and modified by new developers, such that they can use these apps as templates for a quick start.</p>
+<p>Our primary flagship application will be a Matrix chat client, tentatively called Robrix (Robius + Matrix).
+The rationale behind this decision is manyfold:</p>
+<ul>
+<li>The Matrix protocol, like Robius, is open-source, free, and decentralized.</li>
+<li>A chat client's features depend on a wide set of functionality from the underlying system, which will help steer and prioritize development of Osiris and its integration with UI toolkits like Makepad.</li>
+<li>A chat client consists of multiple different UI views, which will drive development of a robust widget library and an expanded set of UI toolkit features.</li>
+<li>It requires complex app/business logic like user authentication and account management, sending, receiving, and synchronizing messages, handling persistent state (caching, settings), delivering notifications, accessing local storage, etc.</li>
+<li>Demanding features can be optionally added to stress test our system abstractions, e.g., audio/video chat, multimedia capture and playback, image display, etc.</li>
+<li>Several Matrix chat clients already exist, which comprise a good basis for comparison between the Robius framework and the frameworks used to implement those clients. We can evaluated both the qualitative development experience and resulting application behavior of Robrix as well as its quantitative performance, relative to that of the other chat clients.</li>
+</ul>
+<p>The below diagram shows a tentative overview of the architecture of Robrix, including the components needed to realize its full set of features. We note that while this a multi-year endeavor, we hope to have a basic MVP available by mid-2024.</p>
+<p><img src="whitepaper/img/robrix_architecture.png" alt="Robrix Matrix Chat Client Proposed Architecture" /></p>
+<p>For the example applications, some initial ideas are listed below, several of which are already in progress.</p>
+<ul>
+<li>Simple to-do or notes app</li>
+<li>Social media news feed, e.g., Twitter, Facebook</li>
+<li>Social video sharing apps, e.g., TikTok, YouTube shorts</li>
+<li>Shopping/e-store app, e.g., Taobao, eBay, Amazon, Etsy</li>
+<li>Basic drawing/sketch app, e.g., paint</li>
+</ul>
 <h2 id="advertise-business-value"><a class="header" href="#advertise-business-value">Advertise business value</a></h2>
 <p>Coming soon!</p>
 <!-- [Long term] Evangelize for usage of Rust + Robius in app dev business cases
