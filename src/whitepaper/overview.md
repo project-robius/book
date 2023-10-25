@@ -8,7 +8,7 @@ This chapter contains an informal whitepaper about the Robius project, including
 
 You can also view this whitepaper content as:
 * [a PowerPoint slide deck (18MB)](https://github.com/project-robius/files/raw/041e980ec1d14bf325f1fb2ba743f8ed142a70cb/Robius%20-%20A%20Vision%20for%20Multi-platform%20App%20Development%20in%20Rust.pptx), [PDF version (15MB)](https://github.com/project-robius/files/blob/041e980ec1d14bf325f1fb2ba743f8ed142a70cb/Robius%20-%20A%20Vision%20for%20Multi-platform%20App%20Development%20in%20Rust.pdf)
-* [a conference talk on YouTube](https://youtu.be/8JfOXfmwotQ?si=kLogqnaApYPNuSq8&t=6802)
+* A conference talk about Robius — [YouTube link](https://youtu.be/8JfOXfmwotQ?si=kLogqnaApYPNuSq8&t=6802), [Bilibili link](https://www.bilibili.com/video/BV1AN4y1Z7vs/)
 
 
 ## Elevator pitch — Robius in 60 seconds

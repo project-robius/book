@@ -14,7 +14,7 @@
         - [Clear business advantages](whitepaper/motivation/business_cases.md)
         - [Rust language benefits](whitepaper/motivation/rust_is_right.md)
         - [Shortcomings of Rust](whitepaper/motivation/rust_shortcomings.md)
-    - [Project Goals]() <!-- whitepaper/goals.md) -->
+    - [Project Goals](whitepaper/goals.md)
     - [Technical Requirements]() <!-- whitepaper/requirements.md) -->
     - [System Architecture]() <!-- whitepaper/design.md) -->
 
