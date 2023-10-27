@@ -62,30 +62,40 @@ As Robius continues to develop, we will expand upon our strategies to meet this 
 
 ### Post-requirements: what stems from efficiency/performance?
 
-The primary benefit of interest is *responsiveness* 
+The primary benefit of high performance and efficiency is *responsiveness*, while the secondary benefit is energy efficiency.
 
-This can be achieved targeting high performance and efficiency is  performanceResponsiveness 
-
+#### Responsiveness
 
 Responsiveness is typically measured in terms of end-to-end latency: the elapsed time from when an input occurs to when the resulting visual change from that input is first displayed.
-For most modern devices, this latency is on the order of tens to hundreds of milliseconds.
+For most modern devices, this latency is on the order of tens to hundreds of milliseconds, i.e., 20ms – 150ms.
 Low responsiveness (high input-to-display latency) is most noticeable and detrimental to the user experience on *touchscreen* devices, which are commonly found on mobile platforms and ocassionally on laptops.
+To understand why, check out this video from Microsoft Research's [classic touch input latency experiment](https://www.youtube.com/watch?v=vOvQCPLkPt4).
 
 
-It is difficult to set a precise target for input-to-display latency, but a conservative target is that the underlying Robius framework components must not contribute more than 50%.
+As with the other related requirements, our initial target is that an app using Robius must not exceed the latency of an equivalent app built for the native platform.
+It is difficult to set a more precise target for input-to-display latency, as many impactful factors lie beyond our framework's control: the native platform's software latency, the underlying hardware (especially graphics accelerators), an application's implementation decisions, and so on.
 
 
-TODO: mention experimenting with ylong's support for priority-based async task scheduling, in which we can assign interactive tasks a higher priority than background tasks or those that do not directly affect the UX and UI responsiveness.
-
-
-TODO: Use [this link](https://danluu.com/input-lag/) that shows web scrolling latency measurements as a basis for responsiveness requirements, as scrolling a webpage is the most common action that general users are familiar with and can understand and visualize.
-
-
-[classic touch input latency experiment from Microsoft Research](https://www.youtube.com/watch?v=vOvQCPLkPt4)
+One likely candidate to use as a basis for comparison is the responsiveness of scrolling a webpage in a platform-native webview, as web scrolling is a very common action that general users are familiar with and can understand and visualize.
+[This series of experiments](https://danluu.com/input-lag/) shows latency measurements for web scrolling on a variety of mobile and desktop platforms, which could serve as a baseline starting point for this requirement; however, many of those figures are for older devices circa 2017. 
+In the future, we may be able to set a more specific responsiveness goal for certain combinations of specific application behavior on specific platforms.
 
 
 
-The secondary target benefit is energy efficiency, which is particularly important for achieving a long usable battery life on battery-powered devices.
+All of the aforementioned tactics to achieve high performance also apply to meeting latency requirements. 
+In addition, we anticipate experimenting with ylong's support for priority-based async task scheduling, in which we can assign interactive tasks a higher priority than background tasks or those that do not directly affect the UX and UI responsiveness.
+To the best of our knowledge, no other async frameworks offer a customizable notion of per-task priority.
+This may bring a significant improvement compared to [`tokio`](https://tokio.rs/), the de facto async framework of choice, especially for applications that are heavily I/O-bound.
+
+
+
+
+#### Energy efficiency
+
+The secondary target benefit is energy efficiency, which is particularly important for battery-powered devices, e.g., mobile, embedded, and extended reality headsets.
+
+TODO: google how important battery life is when users are deciding on 
+
 
 TODO: finish
 
