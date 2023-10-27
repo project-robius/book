@@ -9,8 +9,9 @@ high-end desktops and laptops frequently have monitors capable of even higher fr
 Therefore, the higher-end performance framerate that Robius will target is 120Hz, in order to fully leverage modern mobile hardware.
 
 
-As pictured below, the central requirement of high efficiency and performance leads to follow-up requirements of high responsiveness and low energy consumption.
-It also stems from prerequisite requirements of an efficient, performant implementation language (i.e., Rust), the avoidance of slow communication mechanisms with the underlying platform, and the availability of low-overhead, accurate profiling mechanisms across the system stack.
+As pictured below, the central requirement of high efficiency and performance leads to follow-up requirements (<span style="color:green;">in green</span>) of *(1)* high responsiveness and *(2)* low energy consumption.
+It also stems from prerequisite requirements (<span style="color: orange;">in orange</span>) of *(1)* an efficient, performant implementation language (i.e., Rust), *(2)* the avoidance of slow communication mechanisms with the underlying platform, and *(3)* the availability of low-overhead, accurate profiling mechanisms across the system stack.
+
 We discuss these individual post- and pre-requirements in more detail below.
 
 ![Efficient, Performant Execution](../img/efficient_execution.png)
@@ -31,16 +32,15 @@ Rust also makes concurrency easy to realize with confidence due to [built-in tra
 
 #### Communication mechanisms
 
-The second pre-requirement — using low overhead mechanisms to communicate with the underlying platform — is one that both Osiris and the UI toolkit(s) will need to address
+The second pre-requirement — using low-overhead mechanisms to communicate with the underlying platform — is one that both Osiris and the UI toolkit(s) will need to address
 The most informative perspective from which we can look at this requirement is to examine what *not* to do, i.e., learn from the disadvantages of other cross-framework "bridge" approaches.
-Bridge projects support interaction between app dev frameworks and other programming languages, both for native (e.g., Kotlin + Android SDK, SwiftUI) and cross-platform frameworks (e.g., Flutter, React Native). 
+Bridge projects support interaction between app dev frameworks and other programming languages, both for native (e.g., Jetpack Compose, SwiftUI) and cross-platform frameworks (e.g., Flutter, React Native). 
 However, they typically use (de)serialization to send data between the framework and other language, which sometimes also operate in different processes, requiring inter-process communication (IPC).
-Both serialization, deserialization, and IPC mechanisms all contribute to high overhead, which in turn reduces efficiency (battery life), lowers reponsiveness by imposing additional latency into the app's main event loop, and harms overall performance.
-
+Both serialization, deserialization, and IPC mechanisms all contribute to high overhead, which in turn reduces efficiency (longer battery life and less thermal output), lowers reponsiveness by imposing additional latency into the app's main event loop, and harms overall performance.
 
 For Osiris, our guiding philosophy is to first expose direct unfettered access to native platform APIs with *no* abstraction layers atop them, i.e., implement platform functions and types via FFI/`extern` definitions.
 Only after native features are fully exported via direct FFI will Osiris begin to develop low- to zero-cost abstractions atop these FFIs.
-Thus, by using direct in-process foreign function calls and FFI-compatible type definitions instead of expensive IPC or serialization, we should be able to meet this requirement for all non-UI componentry.
+Thus, by using direct in-process foreign function calls and FFI-compatible type definitions instead of expensive IPC or serialization, we should be able to avoid platform communication overhead and meet this requirement for all non-UI componentry.
 Note that Osiris also follows this philosophy for its [build tooling](build_dev_requirements.md).
 
 Similarly, the Makepad UI toolkit has always been strongly against unnecessary or overly-deep abstraction layers, instead preferring to directly use platform-native functionality via in-house custom crates, which not only reduce runtime overhead to a bare minimum but also keep compile times very short.
@@ -49,20 +49,20 @@ Other UI toolkits may choose different points in the design space with varying t
 
 #### Profiling mechanisms
 
+The third pre-requirement is to enable developers to easily profile the performance of any part of their application as well as any component within the Robius system stack.
+This ties into the other requirements because profiling exists to help developers resolve performance problems by determining where bottlenecks and slowdowns exist in their code.
 
-Linux ftrace
+To meet this requirement, we aim to leverage standard sampling-based performance analysis and tools to generate accessible overviews, e.g., `perf` and flamegraphs.
+We also intend to implement detailed tracing mechanisms, à la [Linux's function tracing (ftrace)](https://www.kernel.org/doc/html/v4.18/trace/ftrace.html) or the Rust [`tracing`](https://crates.io/crates/tracing) crate, in order to allow developers to easily collect diagnostic data by turning on instrumentation events, ideally at module-level and/or criticality-level granularity.
+In addition, we will provide detailed documentation on how to set up and use  existing debugging tools with the Robius framework, while ensuring that build toolchains are capable of emitting necessary debug info that is accurate for  all integrated Rust components.
+Finally, we plan to openly collaborate with the [Oniro project](https://oniroproject.org/) on a joint endeavor to implement tracing support on new platforms like OpenHarmony.
 
-Sampling-based perf + flamegraphs
-
-OpenHarmony/Oniro profiling effort
-
-
-
+As Robius continues to develop, we will expand upon our strategies to meet this requirement.
 
 
 ### Post-requirements: what stems from efficiency/performance?
 
-The primary benefit of interest is *responsiveness*
+The primary benefit of interest is *responsiveness* 
 
 This can be achieved targeting high performance and efficiency is  performanceResponsiveness 
 
