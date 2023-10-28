@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Shortcomings of Rust - The Robius Book</title>
+        <title>Technical Requirements - The Robius Book</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="../../status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="../../whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_shortcomings.html" class="active"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="../../whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><a href="../../whitepaper/requirements/requirements.html"><strong aria-hidden="true">1.3.</strong> Technical Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="../../status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="../../whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="../../whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="../../whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><a href="../../whitepaper/requirements/requirements.html" class="active"><strong aria-hidden="true">1.3.</strong> Technical Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,43 +143,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="rust-does-have-some-relevant-shortcomings"><a class="header" href="#rust-does-have-some-relevant-shortcomings">Rust does have some relevant shortcomings</a></h2>
-<p>While Rust offers an excellent experience for systems development, it does have some disadvantages from a UI standpoint, many of which represent obstacles for its usage in application development.</p>
-<h3 id="1-lack-of-inheritance"><a class="header" href="#1-lack-of-inheritance">1. Lack of inheritance</a></h3>
-<p>First, Rust doesn't support true type-level inheritance, only interface-level inheritance (at the trait level).
-This makes it difficult to realize the object-oriented programming design patterns to which UI developers are typically accustomed, e.g., a base displayable/widget class from which other subclasses can inherit and override functionality as necessary.</p>
-<h3 id="2-representing-shared-mutable-state-is-hard"><a class="header" href="#2-representing-shared-mutable-state-is-hard">2. Representing shared mutable state is hard</a></h3>
-<p>Second, it can be difficult to implement access to shared mutable state in Rust.
-The ownership and borrow-checking semantics are not yet sophisticated enough to support all use cases and programming patterns typically found in UI development and state management frameworks, e.g., updating a state from a background thread that is then read by the main UI thread to re-display it on a widget.
-This is because Rust strictly enforces an &quot;aliasing XOR mutability&quot; rule for memory safety, meaning that there cannot be multiple simultaneous mutable aliases to a piece of shared state — only one mutable alias <em>or</em> multiple immutable aliases, but not both.</p>
-<p>For example, a global static variable can be freely aliased multiple times, but only accessed <em>mutably</em> through unsafe code, which is undesirable, or via a wrapper type that offers interior mutability with some sort of mutual exclusion mechanism, e.g., a <code>Mutex</code>.
-Even for states shared across different parts of a single thread, e.g., among async tasks, mutability still must be separated from aliasing, which is typically realized via the <code>RefCell</code> wrapper type (a single-threaded <code>Mutex</code> equivalent). 
-Also, as Rust lacks runtime garbage collection, the de facto alternative is to wrap states with reference-counter pointer type, e.g., <code>Rc</code> or <code>Arc</code>, for easy sharing of states whose lifetimes are only determinable at runtime.
-The result of these rules and conventions is that code becomes less ergonomic and readable, as it must be littered with <code>Arc&lt;Mutex&lt;State&gt;&gt;</code> or <code>Rc&lt;RefCell&lt;State&gt;&gt;</code> patterns rather than just direct access to <code>State</code>.</p>
-<h3 id="3-slow-compilation"><a class="header" href="#3-slow-compilation">3. Slow compilation</a></h3>
-<p>Third, the Rust compiler has a reputation for being &quot;slow&quot; in that compile times for large Rust projects can be high, at least compared to other languages.
-This is primarily due to the need for and the ability of Rust to perform more safety checks at compile time than other languages.
-The problem with slow compilation is that it lengthens the iterative development cycle, making it more tedious to test a quick change and reducing the overall productivity of app developers.
-The good news is that compilation times are continuously improving thanks to the efforts of <a href="https://nnethercote.github.io/">Nick Nethercote and others</a>, but this still may pose a problem to Rust frameworks that wish to incorporate many features into a project build.</p>
-<h3 id="4-steep-learning-curve"><a class="header" href="#4-steep-learning-curve">4. Steep learning curve</a></h3>
-<p>Finally, Rust is known to have a steep learning curve, as the aforementioned rules for memory safety often present a barrier to newcomers, colloquially referred to as <a href="https://www.google.com/search?q=rust+fighting+the+borrow+checker">&quot;fighting the borrow checker&quot;</a>.
-While systems programmers and low-level programmers may already possess a deeper understanding of memory models and memory safety restrictions, frontend developers are less likely to be intimately familiar with these topics, as they are accustomed to working in higher-level languages that abstract away and handle memory management implicitly.
-A survey from Very Good Ventures found that <a href="https://verygood.ventures/whitepaper/business-value-of-flutter">frontend developers needed around 3.5 months of retraining</a> to switch from a platform-native framework to the cross-platform Flutter framework before they could be equally productive.
-It is possible that switching frontend developers to a Rust-based multi-platform framework like Robius could impose an even steeper barrier to entry.
-As framework designers, we must be careful to strike a balance between explicitness, expressiveness, and simplicity in order to not get in the way of app developers' intentions and productivity.</p>
-<!-- cspell:ignore Nethercote -->
+                        <h1 id="technical-requirements"><a class="header" href="#technical-requirements">Technical Requirements</a></h1>
+<p>This section expands on the requirements inherent to the success of the Robius vision and our initial strategies for how to meet them.
+These requirements can also be seen as additional project goals, but more technical in nature than those in the previous chapter.</p>
+<p>As shown in the following Venn diagram, we have split the set of target requirements into two broad categories: those related to runtime, and those related to build time or developer tooling.
+Certain requirements touch on both runtime and build-time system aspects.
+The following sections discuss each requirement in more detail.</p>
+<p><img src="../img/requirements.png" alt="Technical Requirements" /></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="../../whitepaper/motivation/rust_is_right.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="../../whitepaper/goals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="../../whitepaper/goals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -187,13 +166,10 @@ As framework designers, we must be careful to strike a balance between explicitn
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="../../whitepaper/motivation/rust_is_right.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="../../whitepaper/goals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="../../whitepaper/goals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                             </nav>
 
         </div>

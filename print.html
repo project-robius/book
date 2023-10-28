@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> Technical Requirements</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/requirements.html"><strong aria-hidden="true">1.3.</strong> Technical Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -912,7 +912,7 @@ The rationale behind this decision is manyfold:</p>
 We can then leverage the positive experiences of creating apps atop Robius to evangelize for the usage of Rust in the app dev world, especially in business scenarios.</p>
 <p>Our objective is to show that businesses stand to gain the following benefits from switching to Robius, many of which correspond to <a href="whitepaper/./motivation/business_cases.html">the motivating factors</a> behind the Robius vision itself.</p>
 <ul>
-<li>A modern framework and a highly-desired language more easily attract top developers and improves team culture and morale.</li>
+<li>Usage of a modern framework and highly-desired language tends to attract top developers and improve team culture and morale.</li>
 <li>A multi-platform framework reduces headcount overhead, as developers only need to know Rust and the framework, not the intimate details of each platform.</li>
 <li>Customers get to enjoy a more consistent UI and UX across disparate platforms.</li>
 <li>Maintainability is easier, enabling more rapid and consistent bug fixes at lower cost, which also leads to higher customer satisfaction and engagement.</li>
@@ -920,6 +920,13 @@ We can then leverage the positive experiences of creating apps atop Robius to ev
 <li>An open-source, distributed, and decentralized project structure gives business leaders confidence about the staying power and independent directions of the framework.</li>
 <li>Last but not least, developers get to use Rust!</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="technical-requirements"><a class="header" href="#technical-requirements">Technical Requirements</a></h1>
+<p>This section expands on the requirements inherent to the success of the Robius vision and our initial strategies for how to meet them.
+These requirements can also be seen as additional project goals, but more technical in nature than those in the previous chapter.</p>
+<p>As shown in the following Venn diagram, we have split the set of target requirements into two broad categories: those related to runtime, and those related to build time or developer tooling.
+Certain requirements touch on both runtime and build-time system aspects.
+The following sections discuss each requirement in more detail.</p>
+<p><img src="whitepaper/requirements/../img/requirements.png" alt="Technical Requirements" /></p>
 
                     </main>
 
