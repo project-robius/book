@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/requirements.html"><strong aria-hidden="true">1.3.</strong> Technical Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction to Robius</a></li><li class="chapter-item expanded affix "><a href="status.html">→ Current Project Status</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Robius Whitepaper</li><li class="chapter-item expanded "><a href="whitepaper/overview.html"><strong aria-hidden="true">1.</strong> Whitepaper Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/motivation.html"><strong aria-hidden="true">1.1.</strong> Motivation: why Robius?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/motivation/devs_want_rust.html"><strong aria-hidden="true">1.1.1.</strong> Devs want Rust, but its ecosystem isn't ready</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/business_cases.html"><strong aria-hidden="true">1.1.2.</strong> Clear business advantages</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_is_right.html"><strong aria-hidden="true">1.1.3.</strong> Rust language benefits</a></li><li class="chapter-item expanded "><a href="whitepaper/motivation/rust_shortcomings.html"><strong aria-hidden="true">1.1.4.</strong> Shortcomings of Rust</a></li></ol></li><li class="chapter-item expanded "><a href="whitepaper/goals.html"><strong aria-hidden="true">1.2.</strong> Project Goals</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/requirements.html"><strong aria-hidden="true">1.3.</strong> Technical Requirements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="whitepaper/requirements/performance_efficiency.html"><strong aria-hidden="true">1.3.1.</strong> High performance and efficiency</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/fast_startup.html"><strong aria-hidden="true">1.3.2.</strong> Fast app startup</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/quick_compilation.html"><strong aria-hidden="true">1.3.3.</strong> Quick compilation</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/consistency_flexibility.html"><strong aria-hidden="true">1.3.4.</strong> Consistency and flexibility</a></li><li class="chapter-item expanded "><a href="whitepaper/requirements/compliance.html"><strong aria-hidden="true">1.3.5.</strong> Platform policy compliance</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> System Architecture</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -833,7 +833,7 @@ As framework designers, we must be careful to strike a balance between explicitn
 <li>Establish a Rust app dev community and drive ecosystem development</li>
 <li>Create reference design of full app + system stack</li>
 <li>Develop flagship apps and simpler demo apps as proofs of concept</li>
-<li><span style="color: gray;"> [Future] Give feedback to Rust's lang, libs, and cargo teams </span></li>
+<li><span style="color: gray;"> (Future) Give feedback to Rust's lang, libs, and cargo teams </span></li>
 </ul>
 <p>The following sections provide more details on each of these goals.
 All in all, we hope that Robius will attract front-end developers to the world of Rust and encourage existing Rust experts to broaden their horizons and explore the application development domain as well.</p>
@@ -927,6 +927,88 @@ These requirements can also be seen as additional project goals, but more techni
 Certain requirements touch on both runtime and build-time system aspects.
 The following sections discuss each requirement in more detail.</p>
 <p><img src="whitepaper/requirements/../img/requirements.png" alt="Technical Requirements" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="efficient-performant-execution"><a class="header" href="#efficient-performant-execution">Efficient, performant execution</a></h2>
+<p>The first and most important requirement falls under the runtime behavior category: high performance, efficient execution.
+While this can be a bit of a nebulous goal, our general target is to be at least as performant and efficient as platform-native applications.
+Specifically, the minimum performance requirement for Robius across all platforms is for standard application animations to be able to achieve a consistent framerate of 60 frames per second (FPS), which is the native framerate of most legacy device screens.
+Efficiency-wise, apps built using Robius must not have a larger memory footprint nor consume more power than an equivalent app written using the platform-native SDK.</p>
+<p>While 60FPS is the bare minimum, modern mobile devices typically support higher framerates, such as flagship smartphone screens and virtual/augmented reality head-mounted displays that operate at 90Hz or 120Hz;
+high-end desktops and laptops frequently have monitors capable of even higher framerates up to 240Hz.
+Therefore, the higher-end performance framerate that Robius will target is 120Hz, in order to fully leverage modern mobile hardware.</p>
+<p>As pictured below, the central requirement of high efficiency and performance leads to follow-up requirements (<span style="color:green;">in green</span>) of <em>(1)</em> high responsiveness and <em>(2)</em> low energy consumption.
+It also stems from prerequisite requirements (<span style="color: orange;">in orange</span>) of <em>(1)</em> an efficient, performant implementation language (i.e., Rust), <em>(2)</em> the avoidance of slow communication mechanisms with the underlying platform, and <em>(3)</em> the availability of low-overhead, accurate profiling mechanisms across the system stack.</p>
+<p>We discuss these individual post- and pre-requirements in more detail below.</p>
+<p><img src="whitepaper/requirements/../img/efficient_execution.png" alt="Efficient, Performant Execution" /></p>
+<h3 id="pre-requirements-what-leads-to-efficiencyperformance"><a class="header" href="#pre-requirements-what-leads-to-efficiencyperformance">Pre-requirements: what leads to efficiency/performance?</a></h3>
+<p>Three main factors will contribute to the ability of Robius to meet these requirements: </p>
+<ol>
+<li>Using an efficient, performant language.</li>
+<li>Using efficient mechanisms to communicate with the underlying platform.</li>
+<li>Supporting a low-overhead mechanisms to profile the application, inclusive of the entire Robius stack.</li>
+</ol>
+<h4 id="choice-of-language"><a class="header" href="#choice-of-language">Choice of Language</a></h4>
+<p>The first pre-requirement is already met by virtue of our project charter to use Rust.
+As described in <a href="whitepaper/requirements/../motivation/rust_is_right.html#rust-combines-safety-with-usability-and-performance">a previous motivation subsection</a>, Rust is generally quite efficient because it does not have an underlying runtime or garbage collection (as with C and assembly), so nothing is required to run between the generated code and the machine code.
+Another aspect that further contributes to the ability to achieve high performance with Rust is its aggressive reduction of runtime overhead via zero-cost abstractions and compile-time operations, e.g., type and memory safety analysis along with a powerful (and ever improving) engine for const evaluation.
+Rust also makes concurrency easy to realize with confidence due to <a href="https://doc.rust-lang.org/book/ch16-04-extensible-concurrency-sync-and-send.html">built-in traits</a> for defining <a href="https://doc.rust-lang.org/nomicon/send-and-sync.html">thread safety (<code>Send</code> and <code>Sync</code>)</a>, which reduces the complexity of and barrier to entry for improving performance by leveraging multi-core hardware.</p>
+<h4 id="communication-mechanisms"><a class="header" href="#communication-mechanisms">Communication mechanisms</a></h4>
+<p>The second pre-requirement — using low-overhead mechanisms to communicate with the underlying platform — is one that both Osiris and the UI toolkit(s) will need to address
+The most informative perspective from which we can look at this requirement is to examine what <em>not</em> to do, i.e., learn from the disadvantages of other cross-framework &quot;bridge&quot; approaches.
+Bridge projects support interaction between app dev frameworks and other programming languages, both for native (e.g., Jetpack Compose, SwiftUI) and cross-platform frameworks (e.g., Flutter, React Native). 
+However, they typically use (de)serialization to send data between the framework and other language, which sometimes also operate in different processes, requiring inter-process communication (IPC).
+Both serialization, deserialization, and IPC mechanisms all contribute to high overhead, which in turn reduces efficiency (longer battery life and less thermal output), lowers responsiveness by imposing additional latency into the app's main event loop, and harms overall performance.</p>
+<p>For Osiris, our guiding philosophy is to first expose direct unfettered access to native platform APIs with <em>no</em> abstraction layers atop them, i.e., implement platform functions and types via FFI/<code>extern</code> definitions.
+Only after native features are fully exported via direct FFI will Osiris begin to develop low- to zero-cost abstractions atop these FFIs.
+Thus, by using direct in-process foreign function calls and FFI-compatible type definitions instead of expensive IPC or serialization, we should be able to avoid platform communication overhead and meet this requirement for all non-UI componentry.
+Note that Osiris also follows this philosophy for its build tooling.</p>
+<p>Similarly, the Makepad UI toolkit has always been strongly against unnecessary or overly-deep abstraction layers, instead preferring to directly use platform-native functionality via in-house custom crates, which not only reduce runtime overhead to a bare minimum but also keep compile times very short.
+Other UI toolkits may choose different points in the design space with varying tradeoffs between communication overhead and level of abstraction, but they must aim to keep these costs minimal by avoiding serialization and other expensive data marshalling operations wherever possible.</p>
+<h4 id="profiling-mechanisms"><a class="header" href="#profiling-mechanisms">Profiling mechanisms</a></h4>
+<p>The third pre-requirement is to enable developers to easily profile the performance of any part of their application as well as any component within the Robius system stack.
+This ties into the other requirements because profiling exists to help developers resolve performance problems by determining where bottlenecks and slowdowns exist in their code.</p>
+<p>To meet this requirement, we aim to leverage standard sampling-based performance analysis and tools to generate accessible overviews, e.g., <code>perf</code> and flame graphs.
+We also intend to implement detailed tracing mechanisms, à la <a href="https://www.kernel.org/doc/html/v4.18/trace/ftrace.html">Linux's function tracing (ftrace)</a> or the Rust <a href="https://crates.io/crates/tracing"><code>tracing</code></a> crate, in order to allow developers to easily collect diagnostic data by turning on instrumentation events, ideally at module-level and/or criticality-level granularity.
+In addition, we will provide detailed documentation on how to set up and use  existing debugging tools with the Robius framework, while ensuring that build toolchains are capable of emitting necessary debug info that is accurate for  all integrated Rust components.
+Finally, we plan to openly collaborate with the <a href="https://oniroproject.org/">Oniro project</a> on a joint endeavor to implement tracing support on new platforms like OpenHarmony.</p>
+<p>As Robius continues to develop, we will expand upon our strategies to meet this requirement.</p>
+<h3 id="post-requirements-what-stems-from-efficiencyperformance"><a class="header" href="#post-requirements-what-stems-from-efficiencyperformance">Post-requirements: what stems from efficiency/performance?</a></h3>
+<p>The primary benefit of high performance and efficiency is <em>responsiveness</em>, while the secondary benefit is energy efficiency.</p>
+<h4 id="responsiveness"><a class="header" href="#responsiveness">Responsiveness</a></h4>
+<p>Responsiveness is typically measured in terms of end-to-end latency: the elapsed time from when an input occurs to when the resulting visual change from that input is first displayed.
+For most modern devices, this latency is on the order of tens to hundreds of milliseconds, i.e., 20ms – 150ms.
+Low responsiveness (high input-to-display latency) is most noticeable and detrimental to the user experience on <em>touchscreen</em> devices, which are commonly found on mobile platforms and occasionally on laptops.
+To understand why, check out this video from Microsoft Research's <a href="https://www.youtube.com/watch?v=vOvQCPLkPt4">classic touch input latency experiment</a>.</p>
+<p>As with the other related requirements, our initial target is that an app using Robius must not exceed the latency of an equivalent app built for the native platform.
+It is difficult to set a more precise target for input-to-display latency, as many impactful factors lie beyond our framework's control: the native platform's software latency, the underlying hardware (especially graphics accelerators), an application's implementation decisions, and so on.</p>
+<p>One likely candidate to use as a basis for comparison is the responsiveness of scrolling a webpage in a platform-native webview, as web scrolling is a very common action that general users are familiar with and can understand and visualize.
+<a href="https://danluu.com/input-lag/">This series of experiments</a> shows latency measurements for web scrolling on a variety of mobile and desktop platforms, which could serve as a baseline starting point for this requirement; however, many of those figures are for older devices circa 2017. 
+In the future, we may be able to set a more specific responsiveness goal for certain combinations of specific application behavior on specific platforms.</p>
+<p>All of the aforementioned tactics to achieve high performance also apply to meeting latency requirements. 
+In addition, we anticipate experimenting with ylong's support for priority-based async task scheduling, in which we can assign interactive tasks a higher priority than background tasks or those that do not directly affect the UX and UI responsiveness.
+To the best of our knowledge, no other async frameworks offer a customizable notion of per-task priority.
+This may bring a significant improvement compared to <a href="https://tokio.rs/"><code>tokio</code></a>, the de facto async framework of choice, especially for applications that are heavily I/O-bound.</p>
+<h4 id="energy-efficiency"><a class="header" href="#energy-efficiency">Energy efficiency</a></h4>
+<p>The secondary target benefit is energy efficiency, which is particularly important for battery-powered devices, e.g., mobile, embedded, and extended reality headsets.
+This is reflected in nearly every market survey, in which <a href="https://9to5mac.com/2021/03/19/iphone-buyers-want-battery-life-over-5g/">consumers rank battery life as the most important characteristic</a> when buying a smartphone.</p>
+<p>As with the prior requirements, energy efficiency is affected by many disparate factors, so we again return to the conservative metric of Robius apps not being less efficient than equivalent apps written for the native platform.
+Comparatively speaking, this requirement should be easier to meet due to the nature of Rust-generated machine code lacking overhead of an underlying runtime, VM, or garbage collector.
+Clearly, the UI layer also has a significant impact on energy consumption, which is why our UI toolkits emphasize efficient operation in their design choices.
+For example, Dioxus uses intelligent diffing to reduce the volume of updates required to its virtual DOM, which prevents unnecessary re-rendering operations;
+Makepad bypasses the underlying webview component entirely, as they are known to be relatively heavyweight, in favor of directly accessing the native graphics layer to perform rendering operations.</p>
+<p>A future line of work will involve supporting energy-aware and topology-aware scheduling of tasks/threads across heterogeneous CPU cores, which is common on mobile devices, e.g., <a href="https://www.arm.com/technologies/dynamiq">ARM's <code>dynamIQ</code> system</a> (previously <a href="https://www.arm.com/technologies/big-little"><code>big.LITTLE</code></a>).
+This will enable our concurrent/parallel execution layer to more intelligently utilize the hardware's available power budget by considering it jointly alongside the CPU topology and capability of each core.</p>
+<!-- cspell:ignore ftrace -->
+<div style="break-before: page; page-break-before: always;"></div><h2 id="fast-application-startup"><a class="header" href="#fast-application-startup">Fast application startup</a></h2>
+<p>Coming Soon!</p>
+<!-- research shows that 59 percent of users dislike a slow launch and expect apps to open within two seconds. -->
+<div style="break-before: page; page-break-before: always;"></div><h2 id="quick-compilation"><a class="header" href="#quick-compilation">Quick compilation</a></h2>
+<p>Coming Soon!</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="consistency-across-platforms"><a class="header" href="#consistency-across-platforms">Consistency across platforms</a></h2>
+<p>Coming Soon!</p>
+<h2 id="flexibility-to-incorporate-other-components"><a class="header" href="#flexibility-to-incorporate-other-components">Flexibility to incorporate other components</a></h2>
+<p>Coming Soon!</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="compliance-with-platform-policies"><a class="header" href="#compliance-with-platform-policies">Compliance with platform policies</a></h2>
+<p>Coming Soon!</p>
 
                     </main>
 
