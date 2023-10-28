@@ -96,7 +96,7 @@ We can then leverage the positive experiences of creating apps atop Robius to ev
 
 
 Our objective is to show that businesses stand to gain the following benefits from switching to Robius, many of which correspond to [the motivating factors](./motivation/business_cases.md) behind the Robius vision itself.
-* A modern framework and a highly-desired language more easily attract top developers and improves team culture and morale.
+* Usage of a modern framework and highly-desired language tends to attract top developers and improve team culture and morale.
 * A multi-platform framework reduces headcount overhead, as developers only need to know Rust and the framework, not the intimate details of each platform.
 * Customers get to enjoy a more consistent UI and UX across disparate platforms.
 * Maintainability is easier, enabling more rapid and consistent bug fixes at lower cost, which also leads to higher customer satisfaction and engagement.

@@ -15,6 +15,6 @@
         - [Rust language benefits](whitepaper/motivation/rust_is_right.md)
         - [Shortcomings of Rust](whitepaper/motivation/rust_shortcomings.md)
     - [Project Goals](whitepaper/goals.md)
-    - [Technical Requirements]() <!-- whitepaper/requirements.md) -->
+    - [Technical Requirements](whitepaper/requirements/requirements.md)
     - [System Architecture]() <!-- whitepaper/design.md) -->
 
