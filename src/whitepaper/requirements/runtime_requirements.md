@@ -93,13 +93,18 @@ This may bring a significant improvement compared to [`tokio`](https://tokio.rs/
 #### Energy efficiency
 
 The secondary target benefit is energy efficiency, which is particularly important for battery-powered devices, e.g., mobile, embedded, and extended reality headsets.
+This is reflected in nearly every market survey, in which [consumers rank battery life as the most important characteristic](https://9to5mac.com/2021/03/19/iphone-buyers-want-battery-life-over-5g/) when buying a smartphone.
 
-TODO: google how important battery life is when users are deciding on 
+
+As with the prior requirements, energy efficiency is affected by many disparate factors, so we again return to the conservative metric of Robius apps not being less efficient than equivalent apps written for the native platform.
+Comparatively speaking, this requirement should be easier to meet due to the nature of Rust-generated machine code lacking overhead of an underlying runtime, VM, or garbage collector.
+Clearly, the UI layer also has a significant impact on energy consumption, which is why our UI toolkits emphasize efficient operation in their design choices.
+For example, Dioxus uses intelligent diffing to reduce the volume of updates required to its virtual DOM, which prevents unnecessary re-rendering operations;
+Makepad bypasses the underlying webview component entirely, as they are known to be relatively heavyweight, in favor of directly accessing the native graphics layer to perform rendering operations.
 
 
-TODO: finish
-
-TODO: mention the future concurrency management component having support for energy-aware scheduling of tasks/threads on heterogeneous CPU cores, e.g., big.LITTLE and ARM's dynamIQ system.
+A future line of work will involve supporting energy-aware and topology-aware scheduling of tasks/threads across heterogeneous CPU cores, which is common on mobile devices, e.g., [ARM's `dynamIQ` system](https://www.arm.com/technologies/dynamiq) (previously [`big.LITTLE`](https://www.arm.com/technologies/big-little)).
+This will enable our concurrent/parallel execution layer to more intelligently utilize the hardware's available power budget by considering it jointly alongside the CPU topology and capability of each core.
 
 
 
@@ -107,4 +112,4 @@ TODO: mention the future concurrency management component having support for ene
 Coming Soon!
 
 
-research shows that 59 percent of users dislike a slow launch and expect apps to open within two seconds.
+<!-- research shows that 59 percent of users dislike a slow launch and expect apps to open within two seconds. -->
