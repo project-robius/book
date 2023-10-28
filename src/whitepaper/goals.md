@@ -5,7 +5,7 @@ The Robius project has set forth the following goals:
 * Establish a Rust app dev community and drive ecosystem development
 * Create reference design of full app + system stack
 * Develop flagship apps and simpler demo apps as proofs of concept
-* <span style="color: gray;"> [Future] Give feedback to Rust's lang, libs, and cargo teams </span>
+* <span style="color: gray;"> (Future) Give feedback to Rust's lang, libs, and cargo teams </span>
 
 
 The following sections provide more details on each of these goals.
