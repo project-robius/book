@@ -52,7 +52,7 @@ Other UI toolkits may choose different points in the design space with varying t
 The third pre-requirement is to enable developers to easily profile the performance of any part of their application as well as any component within the Robius system stack.
 This ties into the other requirements because profiling exists to help developers resolve performance problems by determining where bottlenecks and slowdowns exist in their code.
 
-To meet this requirement, we aim to leverage standard sampling-based performance analysis and tools to generate accessible overviews, e.g., `perf` and flamegraphs.
+To meet this requirement, we aim to leverage standard sampling-based performance analysis and tools to generate accessible overviews, e.g., `perf` and flame graphs.
 We also intend to implement detailed tracing mechanisms, à la [Linux's function tracing (ftrace)](https://www.kernel.org/doc/html/v4.18/trace/ftrace.html) or the Rust [`tracing`](https://crates.io/crates/tracing) crate, in order to allow developers to easily collect diagnostic data by turning on instrumentation events, ideally at module-level and/or criticality-level granularity.
 In addition, we will provide detailed documentation on how to set up and use  existing debugging tools with the Robius framework, while ensuring that build toolchains are capable of emitting necessary debug info that is accurate for  all integrated Rust components.
 Finally, we plan to openly collaborate with the [Oniro project](https://oniroproject.org/) on a joint endeavor to implement tracing support on new platforms like OpenHarmony.
@@ -68,7 +68,7 @@ The primary benefit of high performance and efficiency is *responsiveness*, whil
 
 Responsiveness is typically measured in terms of end-to-end latency: the elapsed time from when an input occurs to when the resulting visual change from that input is first displayed.
 For most modern devices, this latency is on the order of tens to hundreds of milliseconds, i.e., 20ms – 150ms.
-Low responsiveness (high input-to-display latency) is most noticeable and detrimental to the user experience on *touchscreen* devices, which are commonly found on mobile platforms and ocassionally on laptops.
+Low responsiveness (high input-to-display latency) is most noticeable and detrimental to the user experience on *touchscreen* devices, which are commonly found on mobile platforms and occasionally on laptops.
 To understand why, check out this video from Microsoft Research's [classic touch input latency experiment](https://www.youtube.com/watch?v=vOvQCPLkPt4).
 
 
@@ -113,3 +113,7 @@ Coming Soon!
 
 
 <!-- research shows that 59 percent of users dislike a slow launch and expect apps to open within two seconds. -->
+
+
+
+<!-- cspell:ignore ftrace -->
