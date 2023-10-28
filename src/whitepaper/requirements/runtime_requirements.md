@@ -36,7 +36,7 @@ The second pre-requirement — using low-overhead mechanisms to communicate with
 The most informative perspective from which we can look at this requirement is to examine what *not* to do, i.e., learn from the disadvantages of other cross-framework "bridge" approaches.
 Bridge projects support interaction between app dev frameworks and other programming languages, both for native (e.g., Jetpack Compose, SwiftUI) and cross-platform frameworks (e.g., Flutter, React Native). 
 However, they typically use (de)serialization to send data between the framework and other language, which sometimes also operate in different processes, requiring inter-process communication (IPC).
-Both serialization, deserialization, and IPC mechanisms all contribute to high overhead, which in turn reduces efficiency (longer battery life and less thermal output), lowers reponsiveness by imposing additional latency into the app's main event loop, and harms overall performance.
+Both serialization, deserialization, and IPC mechanisms all contribute to high overhead, which in turn reduces efficiency (longer battery life and less thermal output), lowers responsiveness by imposing additional latency into the app's main event loop, and harms overall performance.
 
 For Osiris, our guiding philosophy is to first expose direct unfettered access to native platform APIs with *no* abstraction layers atop them, i.e., implement platform functions and types via FFI/`extern` definitions.
 Only after native features are fully exported via direct FFI will Osiris begin to develop low- to zero-cost abstractions atop these FFIs.
