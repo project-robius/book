@@ -21,5 +21,6 @@ Similar procedures are undertaken on iOS and desktop platforms.
 That being said, design and implementation choices within Robius can affect all stages of application startup.
 The primary directive of writing everything in Rust removes the concern about inconsistent performance due to garbage collection or just-in-time compilation jank at startup, because Rust is a fully ahead-of-time compiled language.
 However, Rust binary sizes are notoriously larger than other languages, which may increase loading and dynamic linking time when creating the application process.
-In general, Robius will follow other canonical best practives for reducing startup latency:  maximize lazy initialization, avoid synchronous operations, move work off of the main UI thread, etc.
+In general, Robius will follow other canonical best practices for reducing startup latency:  maximize lazy initialization, avoid synchronous operations, move work off of the main UI thread, etc.
 
+<!-- cspell:ignore TTID, TTIDs -->
