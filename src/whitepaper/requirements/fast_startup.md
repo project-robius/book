@@ -1,4 +1,5 @@
 ## Fast application startup
+
 The second requirement in the runtime behavior category is fast startup for applications, i.e., a short app launch time.
 Decades of surveys have revealed the importance of this metric, as it affects the overall responsive feel of the system and can reflect very poorly on consumer opinion of company.
 For example, [70% of mobile app users will abandon an app](https://www.appsflyer.com/blog/tips-strategy/app-performance/#:~:text=How%20important%20is%20app%20performance,the%20first%20month%20of%20download.) if it takes too long to load, and between [49%](https://embrace.io/blog/observability-mobile-app-performance/#:~:text=According%20to%20a%20recent%20report,fewer%20chances%20before%20uninstalling%20it.) to [59%](https://www.appdynamics.com/blog/engineering/3-mobile-app-performance-issues-you-cant-ignore) of users expect apps to start in under 2 seconds.
