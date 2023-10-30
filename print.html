@@ -999,9 +999,23 @@ Makepad bypasses the underlying webview component entirely, as they are known to
 This will enable our concurrent/parallel execution layer to more intelligently utilize the hardware's available power budget by considering it jointly alongside the CPU topology and capability of each core.</p>
 <!-- cspell:ignore ftrace -->
 <div style="break-before: page; page-break-before: always;"></div><h2 id="fast-application-startup"><a class="header" href="#fast-application-startup">Fast application startup</a></h2>
-<p>Coming Soon!</p>
-<!-- research shows that 59 percent of users dislike a slow launch and expect apps to open within two seconds. -->
-<div style="break-before: page; page-break-before: always;"></div><h2 id="quick-compilation"><a class="header" href="#quick-compilation">Quick compilation</a></h2>
+<p>The second requirement in the runtime behavior category is fast startup for applications, i.e., a short app launch time.
+Decades of surveys have revealed the importance of this metric, as it affects the overall responsive feel of the system and can reflect very poorly on consumer opinion of company.
+For example, <a href="https://www.appsflyer.com/blog/tips-strategy/app-performance/#:%7E:text=How%20important%20is%20app%20performance,the%20first%20month%20of%20download.">70% of mobile app users will abandon an app</a> if it takes too long to load, and between <a href="https://embrace.io/blog/observability-mobile-app-performance/#:%7E:text=According%20to%20a%20recent%20report,fewer%20chances%20before%20uninstalling%20it.">49%</a> to <a href="https://www.appdynamics.com/blog/engineering/3-mobile-app-performance-issues-you-cant-ignore">59%</a> of users expect apps to start in under 2 seconds.
+Similarly, <a href="https://www.gigaspaces.com/blog/amazon-found-every-100ms-of-latency-cost-them-1-in-sales">studies of webpage load times</a> found that an extra 0.5 seconds in Google page generation results in 20% less traffic, every 100ms of additional latency reduces Amazon's sales by 1%, and that ultimately <a href="https://neilpatel.com/blog/loading-time/">53% of visitors will leave a website</a> if it takes over 3 seconds to load.</p>
+<p>Our target is a 2-second cold start, which means that an application being launched for the first time since system boot must display its UI and be interactive within 2 seconds.
+The <em>time to initial display</em> (TTID) should be far less, in that the application must display at least <em>something</em> within 500ms.
+We derive these requirements from guidelines published by mobile app publishers (iOS and Android), who recommend cold starts within 3-5 seconds, warm starts within 2 seconds, hot starts within 1.5 seconds, and TTIDs within 250-500ms.
+We tend to the lower side of the cold start metric, because fast cold start times benefit not only users but also developers, as it helps to shorten the iterative build-run-test development cycle.</p>
+<p>Notably, some of these factors are beyond the control of Robius.
+For example, on Android, a cold start requires the following procedures: process creation, class loading, application initialization, activity creation, layout inflation, and rendering.
+The first two are completely under the control of the platform, while the other four are at least partially under the domain of Robius components.
+Similar procedures are undertaken on iOS and desktop platforms.</p>
+<p>That being said, design and implementation choices within Robius can affect all stages of application startup.
+The primary directive of writing everything in Rust removes the concern about inconsistent performance due to garbage collection or just-in-time compilation jank at startup, because Rust is a fully ahead-of-time compiled language.
+However, Rust binary sizes are notoriously larger than other languages, which may increase loading and dynamic linking time when creating the application process.
+In general, Robius will follow other canonical best practices for reducing startup latency:  maximize lazy initialization, avoid synchronous operations, move work off of the main UI thread, etc.</p>
+<!-- cspell:ignore TTID, TTIDs --><div style="break-before: page; page-break-before: always;"></div><h2 id="quick-compilation"><a class="header" href="#quick-compilation">Quick compilation</a></h2>
 <p>Coming Soon!</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="consistency-across-platforms"><a class="header" href="#consistency-across-platforms">Consistency across platforms</a></h2>
 <p>Coming Soon!</p>
