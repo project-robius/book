@@ -1,7 +1,7 @@
 ## Quick compilation
 
 The third requirement for quick compilation lies solely on the side of build tooling.
-Compile time has an even more signifianct impact on the developer experience and iteration cycle length than the previous requirement of fast app startup.
+Compile time has an even more significant impact on the developer experience and iteration cycle length than the previous requirement of fast app startup.
 
 It is difficult to set an absolute value for this metric, as compilation is heavily affected by the nature of the application content.
 However, we can establish a target that is more relative: compiling the Robius frameworks shall not constitute an unbearable addition to the overall compilation time of the application.
