@@ -1,7 +1,7 @@
 ## Quick compilation
 
 The third requirement for quick compilation lies solely on the side of build tooling.
-Compile time has an even more signifianct impact on the developer experience and iteration cycle length than the previous requriement of fast app startup.
+Compile time has an even more signifianct impact on the developer experience and iteration cycle length than the previous requirement of fast app startup.
 
 It is difficult to set an absolute value for this metric, as compilation is heavily affected by the nature of the application content.
 However, we can establish a target that is more relative: compiling the Robius frameworks shall not constitute an unbearable addition to the overall compilation time of the application.
@@ -21,4 +21,4 @@ Robius makes several design choices to combat high compilation times.
 First and foremost, both the Makepad and Dioxus UI toolkits support **hot reloading**, in which an application can be live updated without restarting it.
 This enables developers to instantly observe changes to an application's UI without needing to re-compile at all.
 Makepad also provides a minimal set of in-house dependencies for very fast compilation, which helps speed up iterative rebuilding of application components that cannot yet be hot-reloaded.
-Another contributing aspect is the desired project structure of many small crates, which enables Robius to benefit from parallelizable compilation units.
+Another contributing aspect is the desired project structure of many small crates, which enables Robius to benefit from parallelization of distinct compilation units.
