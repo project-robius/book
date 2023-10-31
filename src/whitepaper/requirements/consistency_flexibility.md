@@ -11,7 +11,7 @@ To this end, Rust libraries typically strive to offer zero-cost abstractions, an
 
 ## Flexibility to incorporate other components
 The fifth requirement for flexible componentization is primarily a build tooling concern.
-This encompasses two subrequirements at varying levels of importance:
+This encompasses two sub-requirements at varying levels of importance:
 1. Developers must be able to easily incorporate arbitrary third-party components (crates) into the system stack. 
 2. (Future) Developers should be able to select between one of many choices for various modularization levels, e.g., pick from multiple UI toolkits when setting up an application project environment.
     * Ideally, a default component could be replaced with a drop-in compatible third-party version of that component[^1].
