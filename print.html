@@ -1032,9 +1032,31 @@ This enables developers to instantly observe changes to an application's UI with
 Makepad also provides a minimal set of in-house dependencies for very fast compilation, which helps speed up iterative rebuilding of application components that cannot yet be hot-reloaded.
 Another contributing aspect is the desired project structure of many small crates, which enables Robius to benefit from parallelization of distinct compilation units.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="consistency-across-platforms"><a class="header" href="#consistency-across-platforms">Consistency across platforms</a></h2>
-<p>Coming Soon!</p>
+<p>The fourth requirement of cross-platform consistently is relevant to both runtime and build-time behavior, though is primarily focused on the latter.
+The key part of this requirement is that developers should never be <em>required</em> to touch platform-specific code in their application.
+However, they should be able to access platform-specific functionality with relative ease, if desired or needed.
+Though challenging, Robius can meet this requirement through careful design of abstractions that easily reveal lower-level features, e.g., downcasting Rust traits to concrete platform-specific types.</p>
+<p>The runtime-focused aspect of this requirement is that platform-agnostic abstractions should impose no overhead (or as little as possible) compared to using the underlying platform-native code directly.
+Although this is technically more of a design-time requirement, the implementation choices therein will ultimately affect runtime behavior, namely execution efficiency.
+To this end, Rust libraries typically strive to offer zero-cost abstractions, and Robius components shall do the same in this regard.</p>
 <h2 id="flexibility-to-incorporate-other-components"><a class="header" href="#flexibility-to-incorporate-other-components">Flexibility to incorporate other components</a></h2>
-<p>Coming Soon!</p>
+<p>The fifth requirement for flexible componentization is primarily a build tooling concern.
+This encompasses two sub-requirements at varying levels of importance:</p>
+<ol>
+<li>Developers must be able to easily incorporate arbitrary third-party components (crates) into the system stack. </li>
+<li>(Future) Developers should be able to select between one of many choices for various modularization levels, e.g., pick from multiple UI toolkits when setting up an application project environment.
+<ul>
+<li>Ideally, a default component could be replaced with a drop-in compatible third-party version of that component<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
+</ul>
+</li>
+</ol>
+<p>Robius's build infrastructure must be able to support flexible, modular build manifests.
+In addition, the constituent individual projects shall not be tightly coupled to one another, but rather loosely coupled via abstract layers that enable compatibility across different projects that inhabit the same role or responsibility, e.g., UI toolkits, platform abstractions, concurrency runtimes, etc.
+Currently, we are working with members of the Cargo team to add any required missing features to Cargo, as well as experimenting with higher-level build systems that sit atop and invoke Cargo as needed.
+The Osiris project is also developing its own Cargo-compatible build tool for expressing complex build procedures related to packaging applications into publishable units.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This is a distant goal of Robius, but initial versions will likely not support arbitrary drop-in replacement components until Robius is more stable and cross-component boundary interfaces have been clearly established.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="compliance-with-platform-policies"><a class="header" href="#compliance-with-platform-policies">Compliance with platform policies</a></h2>
 <p>Coming Soon!</p>
 
