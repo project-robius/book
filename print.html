@@ -1000,7 +1000,7 @@ This will enable our concurrent/parallel execution layer to more intelligently u
 <!-- cspell:ignore ftrace -->
 <div style="break-before: page; page-break-before: always;"></div><h2 id="fast-application-startup"><a class="header" href="#fast-application-startup">Fast application startup</a></h2>
 <p>The second requirement in the runtime behavior category is fast startup for applications, i.e., a short app launch time.
-Decades of surveys have revealed the importance of this metric, as it affects the overall responsive feel of the system and can reflect very poorly on consumer opinion of company.
+Decades of surveys have revealed the importance of this metric, as it affects the overall responsive feel of the system and can negatively impact consumer opinion of a company.
 For example, <a href="https://www.appsflyer.com/blog/tips-strategy/app-performance/#:%7E:text=How%20important%20is%20app%20performance,the%20first%20month%20of%20download.">70% of mobile app users will abandon an app</a> if it takes too long to load, and between <a href="https://embrace.io/blog/observability-mobile-app-performance/#:%7E:text=According%20to%20a%20recent%20report,fewer%20chances%20before%20uninstalling%20it.">49%</a> to <a href="https://www.appdynamics.com/blog/engineering/3-mobile-app-performance-issues-you-cant-ignore">59%</a> of users expect apps to start in under 2 seconds.
 Similarly, <a href="https://www.gigaspaces.com/blog/amazon-found-every-100ms-of-latency-cost-them-1-in-sales">studies of webpage load times</a> found that an extra 0.5 seconds in Google page generation results in 20% less traffic, every 100ms of additional latency reduces Amazon's sales by 1%, and that ultimately <a href="https://neilpatel.com/blog/loading-time/">53% of visitors will leave a website</a> if it takes over 3 seconds to load.</p>
 <p>Our target is a 2-second cold start, which means that an application being launched for the first time since system boot must display its UI and be interactive within 2 seconds.
@@ -1016,7 +1016,21 @@ The primary directive of writing everything in Rust removes the concern about in
 However, Rust binary sizes are notoriously larger than other languages, which may increase loading and dynamic linking time when creating the application process.
 In general, Robius will follow other canonical best practices for reducing startup latency:  maximize lazy initialization, avoid synchronous operations, move work off of the main UI thread, etc.</p>
 <!-- cspell:ignore TTID, TTIDs --><div style="break-before: page; page-break-before: always;"></div><h2 id="quick-compilation"><a class="header" href="#quick-compilation">Quick compilation</a></h2>
-<p>Coming Soon!</p>
+<p>The third requirement for quick compilation lies solely on the side of build tooling.
+Compile time has an even more significant impact on the developer experience and iteration cycle length than the previous requirement of fast app startup.</p>
+<p>It is difficult to set an absolute value for this metric, as compilation is heavily affected by the nature of the application content.
+However, we can establish a target that is more relative: compiling the Robius frameworks shall not constitute an unbearable addition to the overall compilation time of the application.
+While this is unrealistic for simple applications, we can revise this into the following:</p>
+<p><strong><em>Incremental</em> compilation must be fast enough to be interactive.</strong></p>
+<p>This means that a quick code change should be compilable within a few seconds, such that the developer does not suffer loss of mental focus or context while waiting for compilation to complete.</p>
+<p>One major challenge is the pervasive notion across online communities that the Rust compiler is slow.
+Although this is a contentious issue, it is true that <code>rustc</code> must do more compile-time actions than other languages with fewer static safety guarantees.
+While the compiler team has taken <a href="https://nnethercote.github.io/2023/08/25/how-to-speed-up-the-rust-compiler-in-august-2023.html">significant action to improve compiler performance</a>, Robius must be careful to explicitly subvert this negative expectation.</p>
+<p>Robius makes several design choices to combat high compilation times.
+First and foremost, both the Makepad and Dioxus UI toolkits support <strong>hot reloading</strong>, in which an application can be live updated without restarting it.
+This enables developers to instantly observe changes to an application's UI without needing to re-compile at all.
+Makepad also provides a minimal set of in-house dependencies for very fast compilation, which helps speed up iterative rebuilding of application components that cannot yet be hot-reloaded.
+Another contributing aspect is the desired project structure of many small crates, which enables Robius to benefit from parallelization of distinct compilation units.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="consistency-across-platforms"><a class="header" href="#consistency-across-platforms">Consistency across platforms</a></h2>
 <p>Coming Soon!</p>
 <h2 id="flexibility-to-incorporate-other-components"><a class="header" href="#flexibility-to-incorporate-other-components">Flexibility to incorporate other components</a></h2>
