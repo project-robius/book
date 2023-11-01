@@ -1,6 +1,6 @@
 # The Robius Book
 
-[Introduction to Robius](index.md)
+[Introduction to Robius](intro.md)
 
 [→ Current Project Status](status.md)
 
