@@ -63,6 +63,8 @@
     ],
     "ignoreWords": [
         "Bilibili",
+        "Flatpak",
+        "Flathub",
         "geolocation",
         "Jetpack",
         "liveview",
