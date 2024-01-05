@@ -67,7 +67,8 @@ We also intend to provide two classes of actual applications:
 2. Simple demos: a series of basic example apps that exhibit a few key features, with mock components underneath and elsewhere.
 
 #### Flagship apps
-* Robrix: the Robius Matrix chat client.  Coming soon!
+* [Robrix: the Robius Matrix chat client](https://github.com/project-robius/robrix).
+  * Currently under active development -- please check it out and contribute if you're interested!
   * The needs of this app will be the primary driver for Robius development.
 
 #### Simple demo apps

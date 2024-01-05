@@ -68,16 +68,17 @@ In addition to the systems stack reference design, our other important deliverab
 We will strive for both flagship and example applications to be designed clearly, well-structured, thoroughly commented, and accompanied by documentation like a tutorial-style walkthrough.
 The overarching goal is for these apps to be easily forked and modified by new developers, such that they can use these apps as templates for a quick start.
 
-Our primary flagship application will be a Matrix chat client, tentatively called Robrix (Robius + Matrix).
+Our primary flagship application will be [a fully-featured Matrix chat client called Robrix](https://github.com/project-robius/robrix) (Robius + Matrix).
 The rationale behind this decision is manyfold:
 * The Matrix protocol, like Robius, is open-source, free, and decentralized.
 * A chat client's features depend on a wide set of functionality from the underlying system, which will help steer and prioritize development of Osiris and its integration with UI toolkits like Makepad.
 * A chat client consists of multiple different UI views, which will drive development of a robust widget library and an expanded set of UI toolkit features.
 * It requires complex app/business logic like user authentication and account management, sending, receiving, and synchronizing messages, handling persistent state (caching, settings), delivering notifications, accessing local storage, etc.
 * Demanding features can be optionally added to stress test our system abstractions, e.g., audio/video chat, multimedia capture and playback, image display, etc.
-* Several Matrix chat clients already exist, which comprise a good basis for comparison between the Robius framework and the frameworks used to implement those clients. We can evaluated both the qualitative development experience and resulting application behavior of Robrix as well as its quantitative performance, relative to that of the other chat clients.
+* Several Matrix chat clients already exist, which comprise a good basis for comparison between the Robius framework and the frameworks used to implement those clients. We can evaluate both the qualitative development experience and resulting application behavior of Robrix as well as its quantitative performance, relative to that of the other chat clients.
 
 The below diagram shows a tentative overview of the architecture of Robrix, including the components needed to realize its full set of features. We note that while this a multi-year endeavor, we hope to have a basic MVP available by mid-2024.
+We invite anyone to contribute or test out [Robrix via our GitHub repo here](https://github.com/project-robius/robrix).
 
 ![Robrix Matrix Chat Client Proposed Architecture](img/robrix_architecture.png)
 
